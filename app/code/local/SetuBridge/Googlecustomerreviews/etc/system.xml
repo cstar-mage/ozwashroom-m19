@@ -1,0 +1,204 @@
+<?xml version="1.0" ?>
+<!-- 
+/** Setubridge Technolabs
+* http://www.setubridge.com/
+* @author SetuBridge
+* @license http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
+**/
+-->
+<config>
+    <tabs>
+        <sbridge_tab module="googlecustomerreviews" translate="label">
+            <label>Setubridge</label>
+            <sort_order>100</sort_order>
+        </sbridge_tab>
+    </tabs> 
+    <sections>
+        <googlecustomerreviews_section module="googlecustomerreviews" translate="label">
+            <label>Google Customer Reviews </label>
+            <sort_order>300</sort_order>
+            <show_in_default>1</show_in_default>
+            <show_in_website>1</show_in_website>
+            <show_in_store>1</show_in_store>
+            <tab>sbridge_tab</tab>
+            <groups>
+                <sbridge_licence_manager_group translate="label">
+                    <label>Licence Manager</label>
+                    <sort_order>5</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <licence_key translate="label Licence Key">
+                            <sort_order>10</sort_order>
+                            <label>Activation key</label>
+                            <frontend_type>text</frontend_type>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </licence_key>
+                        <version translate="label Licence Key">
+                            <sort_order>5</sort_order>
+                            <label>Version</label>
+                            <frontend_type>Link</frontend_type>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </version>
+                    </fields>
+                </sbridge_licence_manager_group>
+
+                <googlecustomerreviewsgeneral_group translate="label">
+                    <label>General</label>
+                    <sort_order>10</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <enable_select translate="label">
+                            <sort_order>10</sort_order>
+                            <label>Enable</label>
+                            <frontend_type>select</frontend_type>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                        </enable_select>
+                    </fields>
+                </googlecustomerreviewsgeneral_group>
+                <googlecustomerreviewsgooglesetting_group translate="label">
+                    <label>Google Customer Reviews Setting</label>
+                    <sort_order>20</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+
+                        <googlecustomerreviewsgmerchantid_input translate="label">
+                            <label>Merchant Account ID</label> 
+                            <comment>Enter your google Merchant id </comment> 
+                            <frontend_type>text</frontend_type>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </googlecustomerreviewsgmerchantid_input>
+
+                        <badge_select translate="label">
+                            <sort_order>10</sort_order>
+                            <label>Display Badge</label>
+                            <frontend_type>select</frontend_type>
+                            <sort_order>11</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                        </badge_select>
+
+                        <badge translate="label">
+                            <label>Badge Position</label>
+                            <comment>Choose Base Position(Default:Bottom Right) </comment>
+                            <frontend_type>select</frontend_type>
+                            <sort_order>12</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends><badge_select>1</badge_select></depends>
+                            <source_model>SetuBridge_Googlecustomerreviews_Model_System_Config_Source_Badge</source_model>
+                        </badge>
+
+                        <badge_textarea translate="label">
+                            <label>Badge Container Style</label>
+                            <comment>css apply to the container EX.top:0%; bottom:0%;</comment>
+                            <frontend_type>textarea</frontend_type>
+                            <sort_order>13</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends><badge_select>1</badge_select></depends>
+                             <depends><badge>INLINE</badge></depends>
+                        </badge_textarea>
+
+                        <code translate="label">
+                            <label>Language</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>SetuBridge_Googlecustomerreviews_Model_System_Config_Source_Googleallowlang</source_model>
+                            <sort_order>30</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </code>
+
+                        <googlecustomerreviewsuserdefinedgshoppingid_input translate="label">
+                            <label>Custom Google Shopping Item ID</label> 
+                            <comment>Enter Must be  attribute_code not label</comment> 
+                            <frontend_type>text</frontend_type>
+                            <sort_order>45</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends>
+                                <google_shopping_id_dropdown>USER_DEFINED</google_shopping_id_dropdown>
+                            </depends>
+                        </googlecustomerreviewsuserdefinedgshoppingid_input>                    
+                    </fields>
+                </googlecustomerreviewsgooglesetting_group>
+                <googlecustomerreviewsgoogleorderpagesetting_group translate="label">
+                    <label>Order Success Page Badge Fields Configuration</label>
+                    <sort_order>30</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+
+                        <dialogbox translate="label">
+                            <label>Dialog Box Position</label>
+                            <comment>Choose Base Position(Default:Center) </comment>
+                            <frontend_type>select</frontend_type>
+                            <sort_order>14</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <source_model>SetuBridge_Googlecustomerreviews_Model_System_Config_Source_DialogBox</source_model>
+                        </dialogbox>
+
+                        <googlecustomerreviewsdeliveryday_input translate="label">
+                            <label>Estimated Delivery Days</label>
+                            <comment>Estimated delivery days{count} from order date</comment>  
+                            <frontend_type>text</frontend_type>
+                            <sort_order>55</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </googlecustomerreviewsdeliveryday_input>
+
+                        <allow_backorder translate="label">
+                            <sort_order>70</sort_order>
+                            <label>Allow Backorder</label>
+                            <frontend_type>select</frontend_type>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                        </allow_backorder>
+
+                        <gtsbackorderdeliveryday translate="label">
+                            <label>Backorder Estimated Delivery Days</label>
+                            <comment>GCR script will load backorder estimated delivery configuration in case there is atleast one backorder item in order</comment>  
+                            <frontend_type>text</frontend_type>
+                            <sort_order>75</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends>
+                                <allow_backorder>1</allow_backorder>
+                            </depends>
+                        </gtsbackorderdeliveryday>
+
+                    </fields>
+                </googlecustomerreviewsgoogleorderpagesetting_group>
+            </groups>   
+        </googlecustomerreviews_section>
+    </sections>
+
+</config>

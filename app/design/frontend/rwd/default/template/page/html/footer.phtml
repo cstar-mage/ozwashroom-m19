@@ -1,0 +1,258 @@
+<?php
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Academic Free License (AFL 3.0)
+ * that is bundled with this package in the file LICENSE_AFL.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/afl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magento.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magento.com for more information.
+ *
+ * @category    design
+ * @package     rwd_default
+ * @copyright   Copyright (c) 2006-2015 X.commerce, Inc. (http://www.magento.com)
+ * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ */
+?>
+<?php /*?><div class="footer-container">
+    <div class="footer">
+        <?php echo $this->getChildHtml() ?>
+        <address class="copyright"><?php echo $this->getCopyright() ?></address>
+    </div>
+</div><?php */?>
+
+<div class="container" >
+<div class="row">
+<?php 
+$routeName = Mage::app()->getRequest()->getRouteName();
+$identifier = Mage::getSingleton('cms/page')->getIdentifier();
+ 
+if($routeName == 'cms' && $identifier == 'home') {?>
+    <div class="col-lg-12 home-bottom">
+		<?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('home_bottom')->toHtml(); ?>
+    </div><div class="col-lg-12">
+<?php } ?>
+
+  <div class="col-lg-3 col-md-3 col-sm-12 newslatter">
+	<?php echo $this->getLayout()->createBlock('newsletter/subscribe')->setTemplate('newsletter/subscribe.phtml')->toHtml(); ?>
+  </div>
+  <!--<div class="col-lg-9 col-md-9 col-sm-12" id="blank">-->
+  <div class="col-lg-9 col-md-9 col-sm-12">
+		<h3 class="customer">Some of our happy customers</h3>
+		<ul id="flexiselDemo3">
+			<?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('happy-customer ')->toHtml(); ?>
+		</ul>
+  </div>
+</div>
+</div>
+</div>
+
+<!-- logo slider -->
+<script type="text/javascript">
+
+jQuery(window).load(function() {
+    
+    jQuery("#flexiselDemo3").flexisel({
+        visibleItems: 5,
+        animationSpeed: 1000,
+        autoPlay: true,
+        autoPlaySpeed: 3000,            
+        pauseOnHover: true,
+        enableResponsiveBreakpoints: true,
+        responsiveBreakpoints: {
+			 portrait: { 
+                changePoint:320,
+                visibleItems: 2
+            },  
+            portrait: { 
+                changePoint:480,
+                visibleItems: 2
+            }, 
+            landscape: { 
+                changePoint:640,
+                visibleItems: 2
+            },
+            tablet: { 
+                changePoint:768,
+                visibleItems: 3
+            }
+        }
+    });
+
+   
+});
+</script>
+
+<div class="footer">
+	<div class="container">
+    	<div class="col-lg-3 col-md-3 col-sm-4 footer-first" style="padding:0">
+        	<div class="col-lg-6 col-md-6 col-sm-6" style="padding:0">
+            	<?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('help')->toHtml(); ?>
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-6" style="padding:0">
+            	<?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('my-account')->toHtml(); ?>
+            </div>
+         </div>
+         <!--<div class="col-lg-7 col-md-6 col-sm-8" id="blank">
+         	<div class="col-lg-3 col-md-3 col-sm-3" id="blank">-->
+	    <div class="col-lg-7 col-md-6 col-sm-8">
+         	<div class="col-lg-3 col-md-3 col-sm-3">
+           	 <?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('find-more')->toHtml(); ?>
+            </div>
+            <div class="col-lg-3 col-md-3 col-sm-3" id="24h" style="text-align:center;">
+       	   	 <?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('best-price')->toHtml(); ?>
+            </div>
+           <div class="col-lg-6 col-md-6 col-sm-6 pay-ic" id="cardtxt">
+       	    <?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('footer-we-accept')->toHtml(); ?>
+             </div>
+         </div>
+        <div class="col-lg-2 col-sm-6 col-md-2 regi" id="registertxt">
+        	<?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('footer-registered-office')->toHtml(); ?>
+		<div class="w3cval" style="padding: 10px 0 !important"><img src="<?php echo $this->getSkinUrl('images/W3cVal.jpeg');?>" alt="W3CValidation" /></div>
+        </div>
+    </div>
+</div>
+
+<script>
+(function($){
+
+    $(document).ready(function() {
+        //$('#menu1').dropit();
+        $('#menu2').dropit({ action: 'hover' });
+    });
+	
+
+	  $(document).ready(function(){
+		  $('#menu1').click(function(){
+			  $('#menutxt').toggle();
+		  });
+	  });
+			  
+    
+
+})(window.jQuery);
+</script>
+<script>
+	jQuery(document).ready(function() {
+		jQuery('.scrollbars').ClassyScroll();
+	});
+</script>
+
+<script>
+	var _gaq = _gaq || [];
+	_gaq.push(['_setAccount', 'UA-30825160-1']);
+	_gaq.push(['_trackPageview']);
+	(function() {
+		var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+		ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+		var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+	})();
+</script>
+
+<!-- Start of LiveChat (www.livechatinc.com) code -->
+<script type="text/javascript">
+var __lc = {};
+__lc.license = 6636641;
+(function() {
+  var lc = document.createElement('script'); lc.type = 'text/javascript'; lc.async = true;
+  lc.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'cdn.livechatinc.com/tracking.js';
+  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(lc, s);
+})();
+</script>
+<!-- End of LiveChat code -->
+
+
+
+<!--   Script for Google Snippets   -->
+<script type="text/javascript">
+  (function(d, t, e, m){    
+    // Async Rating-Widget initialization.
+    window.RW_Async_Init = function(){
+                
+        RW.init({
+            huid: "319922",
+            uid: "97ef222980a7860a9fe4adddf672f003",
+            options: { "style": "oxygen" } 
+        });
+        RW.render();
+    };
+        // Append Rating-Widget JavaScript library.
+    var rw, s = d.getElementsByTagName(e)[0], id = "rw-js",
+        l = d.location, ck = "Y" + t.getFullYear() + 
+        "M" + t.getMonth() + "D" + t.getDate(), p = l.protocol,
+        f = ((l.search.indexOf("DBG=") > -1) ? "" : ".min"),
+        a = ("https:" == p ? "secure." + m + "js/" : "js." + m);
+    if (d.getElementById(id)) return;              
+    rw = d.createElement(e);
+    rw.id = id; rw.async = true; rw.type = "text/javascript";
+    rw.src = p + "//" + a + "external" + f + ".js?ck=" + ck;
+    s.parentNode.insertBefore(rw, s);
+  }(document, new Date(), "script", "rating-widget.com/"));
+</script>
+<!--   Script for Google Snippets   -->
+
+<!--<style type="text/css">
+  @media only screen and (max-width:360px){
+    .w3cval{text-align: center}
+  }
+</style>-->
+
+<?php/*
+<!-- BEGIN: Google Trusted Stores -->
+<script type="text/javascript">
+  var gts = gts || [];
+ 
+    gts.push(["id", "717691"]);
+    gts.push(["badge_position", "BOTTOM_LEFT"]);
+    //gts.push(["locale", "en"]);
+    //gts.push(["google_base_offer_id", ""]);
+	//gts.push(["google_base_country", "AU"]);
+	//gts.push(["google_base_language", "en"]);
+ 
+		
+	
+    (function() {
+        var gts = document.createElement("script");
+        gts.type = "text/javascript";
+        gts.async = true;
+        gts.src = "https://www.googlecommerce.com/trustedstores/api/js";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(gts, s);
+    })();
+</script>
+<!-- END: Google Trusted Stores -->
+<!--<div id="GTS_CONTAINER"></div>-->
+*/?>
+
+  
+  <!-- BEGIN: Google Trusted Stores -->
+<script type="text/javascript">
+  var gts = gts || [];
+
+  gts.push(["id", "717691"]);
+  gts.push(["badge_position", "BOTTOM_LEFT"]);
+  //gts.push(["badge_container", "GTS_CONTAINER"]);
+  gts.push(["locale", "en"]);
+  //gts.push(["google_base_offer_id", "17339201"]);
+  gts.push(["google_base_subaccount_id", "7162166"]);
+
+  (function() {
+    var gts = document.createElement("script");
+    gts.type = "text/javascript";
+    gts.async = true;
+    gts.src = "https://www.googlecommerce.com/trustedstores/api/js";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(gts, s);
+  })();
+</script>
+<!-- END: Google Trusted Stores -->

@@ -1,0 +1,61 @@
+<?php
+/** Setubridge Technolabs
+* http://www.setubridge.com/
+* @author SetuBridge
+* @license http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
+**/  
+?>
+<?php
+    $storeId=Mage::app()->getStore()->getStoreId();
+?>
+<?php if(!Mage::helper('googlecustomerreviews')->isValidLicence()) return; ?>
+<?php if(Mage::helper('googlecustomerreviews')->isActive()) : ?>
+    <?php 
+    $gBadgePos=Mage::helper('googlecustomerreviews')->getGoogleBasePosition();
+    $currentController=Mage::app()->getFrontController()->getRequest()->getControllerName();
+    $currentRoute=Mage::app()->getRequest()->getRouteName();
+    $googleOfferId=Mage::helper('googlecustomerreviews')->getGoogleShoppingType();
+    $merchant_acc_id=Mage::helper('googlecustomerreviews')->getGoogleMerchantId();
+    $gcr_language=Mage::helper('googlecustomerreviews')->getMerchantLang();
+    $gDialogbox=Mage::helper('googlecustomerreviews')->getGoogleDialogboxPosition();
+
+    ?>
+
+    <?php if(Mage::getStoreConfig('googlecustomerreviews_section/googlecustomerreviewsgooglesetting_group/badge_select',$storeId)) :
+
+        if($gBadgePos['basePos']=='INLINE'){ 
+            $position=$gBadgePos['base_container'];  ?>
+            <script src="https://apis.google.com/js/platform.js" async defer></script>
+            <div class="badge_position" style="<?php echo $position ; ?>"> 
+                <g:ratingbadge merchant_id=<?php echo $merchant_acc_id ;?>></g:ratingbadge>
+            </div>
+            <?php  } ?>
+        <!-- BEGIN: Google Customer Reviews -->
+        <script src="https://apis.google.com/js/platform.js?onload=renderBadge" async defer></script>
+        <script data-keepinline="true">
+            window.renderBadge = function() {
+                var ratingBadgeContainer = document.createElement("div");
+                document.body.appendChild(ratingBadgeContainer);
+                window.gapi.load('ratingbadge', function() {
+                    window.gapi.ratingbadge.render(
+                        ratingBadgeContainer, {
+                            "merchant_id": <?php echo $merchant_acc_id; ?>,
+                            "position": "<?php  echo $gBadgePos['basePos'];?>"
+
+                    });
+                });
+            }
+        </script>
+        <!-- END GCR Badge Code -->
+
+        <?php endif; ?> 
+    <!-- BEGIN GCR Language Code -->
+    <script data-keepinline="true">
+        window.___gcfg = {
+            lang: '<?php echo $gcr_language; ?>'
+        };
+    </script>
+    <!-- END GCR Language Code -->
+    <?php endif; ?>  
+
+

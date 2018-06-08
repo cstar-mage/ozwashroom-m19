@@ -1,0 +1,25 @@
+#checkout-step-billing .customer-name:after {
+    content: '';
+    display: block;
+    clear: both;
+}
+#checkout-step-billing .customer-name .name-firstname,
+#checkout-step-billing .customer-name .name-lastname {
+    width: 30%;
+    float: left;
+    margin-right: 20px;
+}
+#checkout-step-billing .fields:after {
+    content: '';
+    display: block;
+    clear: both;
+}
+#checkout-step-billing .address-state,
+#checkout-step-billing .address-postalcode {
+    width: 30%;
+    float: left;
+    margin-right: 20px;
+}
+#checkout-step-billing .address-country {
+    display: none;
+}

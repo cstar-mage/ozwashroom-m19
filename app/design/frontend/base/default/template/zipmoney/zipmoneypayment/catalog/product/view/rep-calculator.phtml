@@ -1,0 +1,19 @@
+<span class="zip-repay-calc">
+<?php 
+if($rep_html =  $this->getRepayments()){
+?>
+<script type="text/javascript">
+    document.observe("dom:loaded", function() {
+        var vElementId = 'zipmoney-widget-general';
+        if (window.ZipMoneyWidgetModal == undefined) {
+            var vInstanceName = 'window.ZipMoneyWidgetModal';
+            var vDefaultContent = '<?php echo Mage::helper("zipmoneypayment/widget")->getDefaultContent(); ?>';
+            var aPageContents = <?php echo json_encode(Mage::helper("zipmoneypayment/widget")->getAllTermsPages()); ?>;
+            window.ZipMoneyWidgetModal = new WidgetModal(vInstanceName, vElementId, aPageContents, vDefaultContent);
+            window.ZipMoneyWidgetModal.addListenerToMultipleElements('.zip-widget-general');
+        }
+    });
+</script>
+<?php echo $rep_html;  ?> <a href="#" class="zip-widget-general zip-more-link"><?php echo $this->__('More'); ?></a>
+<?php } ?>
+</span>

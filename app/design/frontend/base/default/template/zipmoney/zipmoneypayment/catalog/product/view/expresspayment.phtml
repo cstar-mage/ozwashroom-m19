@@ -1,0 +1,103 @@
+<?php
+/**
+ * @category  Aligent
+ * @package   zipmoney
+ * @author    Andi Han <andi@aligent.com.au>
+ * @copyright 2014 Aligent Consulting.
+ * @license   http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
+ * @link      http://www.aligent.com.au/
+ */
+?>
+<?php $_product = $this->getProduct(); ?>
+<?php $buttonTitle = $this->__('zipMoney Express'); ?>
+<?php if($_product->isSaleable()): ?>
+
+    <script type="text/javascript">
+        document.observe("dom:loaded", function() {
+            var vElementId = 'zipmoney-widget-general';
+            if (window.ZipMoneyWidgetModal == undefined) {
+                var vInstanceName = 'window.ZipMoneyWidgetModal';
+                var vDefaultContent = '<?php echo Mage::helper("zipmoneypayment/widget")->getDefaultContent(); ?>';
+                var aPageContents = <?php echo json_encode(Mage::helper("zipmoneypayment/widget")->getAllTermsPages()); ?>;
+                window.ZipMoneyWidgetModal = new WidgetModal(vInstanceName, vElementId, aPageContents, vDefaultContent);
+                window.ZipMoneyWidgetModal.addListenerToMultipleElements('.zip-widget-general');
+            }
+        });
+    </script>
+
+    <div>
+        <div id="zipmoney-express-product" class="zip-express-btn">
+            <div class="zipmoney-express-cart-product">
+                <a id="zipmoney-express-button" class="zip-hover" href="<?php echo $this->getExpressPaymentUrl(); ?>" >
+                    <img id="zipmoney-express-button-img" class="zip-express-bt-img" src="<?php echo $this->getExpressButtonUrl(); ?>" alt="<?php echo $this->__('BUY NOW, PAY LATER'); ?>"/>
+                </a>
+                <input type="hidden" id="zip_checkout_url" name="return_url" value="" disabled/>
+            </div>
+            <div class="zipmoney-express-cart-product-learn-more zip-widget-general">
+                <a id="zipmoney-express-learn-more" class="zip-hover zip-express-widget-link" style="font-family: Noto Sans; color: #808080; font-size: 9px;" >
+                    <?php echo $this->getAdditionalText();?>
+                </a>
+            </div>
+        </div>
+        <div class="wait-for-redirecting-to-zip" id="redirecting-to-zipmoney" style="display:none;">
+            <div class="zip-loading-icon-container">
+                <img src="<?php echo $this->getSkinUrl('images/opc-ajax-loader.gif') ?>" alt="<?php echo $this->__('Redirecting to zipMoney...') ?>" title="<?php echo $this->__('Redirecting to zipMoney...') ?>" class="v-middle zip-loading-icon" />
+            </div>
+            <div class="zip-loading-text"><?php echo $this->__('Redirecting to zipMoney...') ?></div>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        var vButtonId = 'zipmoney-express-button-img';
+        var vLkSelector = '.zip-express-widget-link';
+        window.ZipMoneyWidgetLink = new AdditionLink(vButtonId, vLkSelector);
+        Event.observe(window, 'load', function () {window.ZipMoneyWidgetLink.adjustWidth();});
+    </script>
+
+    <script type="text/javascript">
+        Event.observe('zipmoney-express-button', 'click', function(event) {
+            var returnUrl = $('zip_checkout_url');
+            if (returnUrl == undefined) {
+                return;
+            }
+            returnUrl.value = this.href;
+            var button = $('zipmoney-express-button');
+            if (button == undefined) {
+                return;
+            }
+            /**
+             * If the iframe checkout is enabled, redirect to the same page and append additional param
+             */
+            var url = '<?php echo $this->getReturnUrl(); ?>';
+            if (url) {
+                returnUrl.value = url;
+            }
+
+            returnUrl.enable();
+            productAddToCartForm.submit(button);
+            event.stop();
+            returnUrl.value = '';
+            returnUrl.disable();
+            if (button.disabled) {
+                toggleExpressButton(false);
+            }
+        });
+    </script>
+
+    <?php if($this->_isIframeFlowEnabled()): ?>
+        <script type="text/javascript">
+            if (<?php echo $this->showIframeCheckout(); ?>) {
+                toggleExpressButton(false);
+            }
+
+            document.observe("dom:loaded", function() {
+                if (<?php echo $this->showIframeCheckout(); ?>) {
+                    var vUrl = '<?php echo $this->getIframeRedirectUrl(); ?>';
+                    var iframe = new iframeCheckout(vUrl, 'pdp', '<?php echo $this->__('Can not redirect to zipMoney.') ?>');
+                    iframe.redirectToCheckout();
+                }
+            });
+        </script>
+    <?php endif; ?>
+
+<?php endif; ?>

@@ -1,0 +1,10 @@
+User-agent: *
+Disallow:
+Disallow: /customer/
+Disallow: /catalogsearch/
+Disallow: /review/
+Disallow: /*.php
+Disallow: /*?price=*
+Disallow: /*?cat=*
+Disallow: /*?manufacturer=*
+Disallow: /wishlist/

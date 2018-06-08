@@ -1,0 +1,13 @@
+<?php
+$email = $this->getEmail();
+$ordercollection = Mage::getResourceModel('sales/order_collection')
+					->addFieldToSelect('increment_id','order_no')
+					->addFieldToFilter('customer_email',$email);
+?>
+<?php foreach($ordercollection as $order): ?>
+	<li style="list-style:none inside; padding:0 0 0 10px;">
+		<a href="<?php echo Mage::getBaseUrl();?>offlineordertrack/tracking/index/" target="_blank">
+			<?php echo $order['order_no']; ?>
+		</a>
+	</li>
+<?php  endforeach; ?>

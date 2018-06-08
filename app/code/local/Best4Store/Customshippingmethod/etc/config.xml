@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<config>
+  <modules>
+    <Best4Store_Customshippingmethod>
+      <version>1.0</version>
+    </Best4Store_Customshippingmethod>
+  </modules>
+  <global>
+    <models>
+      <best4store_customshippingmethod>
+        <class>Best4Store_Customshippingmethod_Model</class>
+      </best4store_customshippingmethod>
+    </models>
+    <helpers>
+      <best4store_customshippingmethod>
+        <class>Best4Store_Customshippingmethod_Helper</class>
+      </best4store_customshippingmethod>
+    </helpers>
+  </global>
+  <default>
+    <carriers>
+      <best4store_customshippingmethod>
+        <active>1</active>
+        <sallowspecific>1</sallowspecific>
+        <model>best4store_customshippingmethod/demo</model>
+        <name>Melbourne Metro Area</name>
+        <price>10.00</price>
+        <title>Melbourne Metro Area</title>
+      </best4store_customshippingmethod>
+    </carriers>
+  </default>
+</config>

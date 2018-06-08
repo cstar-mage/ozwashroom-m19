@@ -1,0 +1,34 @@
+
+<script type="text/javascript">
+    document.observe("dom:loaded", function() {
+        var vElementId = 'zipmoney-widget-general';
+        if (window.ZipMoneyWidgetModal == undefined) {
+            var vInstanceName = 'window.ZipMoneyWidgetModal';
+            var vDefaultContent = '<?php echo Mage::helper("zipmoneypayment/widget")->getDefaultContent(); ?>';
+            var aPageContents = <?php echo json_encode(Mage::helper("zipmoneypayment/widget")->getAllTermsPages()); ?>;
+            window.ZipMoneyWidgetModal = new WidgetModal(vInstanceName, vElementId, aPageContents, vDefaultContent);
+            window.ZipMoneyWidgetModal.addListenerToMultipleElements('.zip-widget-general');
+        }
+    });
+</script>
+
+<?php $vHtml = $this->getHtml(); ?>
+<div id="zipmoney-strip-banner-container" class="zip-strip-banner-container">
+    <div id="zipmoney-strip-banner" class="zip-hover zip-strip-banner zip-widget-general">
+        <?php echo $vHtml; ?>
+    </div>
+</div>
+
+<script type="text/javascript">
+    var vEleId = 'zipmoney-strip-banner-container';
+    var vEleClass = 'zip-strip-banner-container';
+    var vHtml = <?php echo json_encode($vHtml); ?>;
+    if (!window.ZipStripBanner || window.ZipStripBanner == undefined) {
+        window.ZipStripBanner = new StripBanner(vEleId, vEleClass, vHtml);
+    }
+    if (window.ZipStripBanner != undefined) {
+        Event.observe(window, 'load', function () {
+            window.ZipStripBanner.adjustHeight();
+        });
+    }
+</script>

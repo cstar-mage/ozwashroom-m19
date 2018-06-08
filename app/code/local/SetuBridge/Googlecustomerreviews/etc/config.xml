@@ -1,0 +1,126 @@
+<?xml version="1.0"?>
+<!-- 
+/**
+* @category   Sbridge
+* @package    SetuBridge_Googlecustomerreviews
+* @author     ModuleCreator
+* @license    http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
+*/
+-->
+<config>
+    <default>
+        <googlecustomerreviews_section>
+            <sbridge_licence_manager_group> 
+                <version>1.0.0</version>
+            </sbridge_licence_manager_group>  
+            <googlecustomerreviewsgooglesetting_group> 
+                <badge_select>1</badge_select>
+                <badge>BOTTOM_RIGHT</badge>
+                <code>en_US</code>
+                <badge_textarea>top:0px;left:0px;position:absolute;</badge_textarea>
+            </googlecustomerreviewsgooglesetting_group>
+            <googlecustomerreviewsgoogleorderpagesetting_group>
+                <googlecustomerreviewsdeliveryday_input>3</googlecustomerreviewsdeliveryday_input>
+                <gtsbackorderdeliveryday>5</gtsbackorderdeliveryday>    
+            </googlecustomerreviewsgoogleorderpagesetting_group>    
+        </googlecustomerreviews_section>
+    </default>
+    <modules>
+        <SetuBridge_Googlecustomerreviews>
+            <version>1.0.0</version>
+        </SetuBridge_Googlecustomerreviews>
+    </modules>
+    <frontend>
+        <routers>
+            <googlecustomerreviews>
+                <use>standard</use>
+                <args>
+                    <module>SetuBridge_Googlecustomerreviews</module>
+                    <frontName>googlecustomerreviews</frontName>
+                </args>
+            </googlecustomerreviews>
+        </routers>
+        <layout>
+            <updates>
+                <googlecustomerreviews>
+                    <file>googlecustomerreviews.xml</file>
+                </googlecustomerreviews>
+            </updates>
+        </layout>
+    </frontend>
+    <admin>
+        <routers>
+            <adminhtml>
+                <args> 
+                    <modules>
+                        <googlecustomerreviews_admin after="Mage_Adminhtml">SetuBridge_Googlecustomerreviews_Adminhtml</googlecustomerreviews_admin> 
+                    </modules>
+                </args> 
+            </adminhtml> 
+        </routers>
+    </admin>
+    <adminhtml>
+        <acl>
+            <resources>
+                <all>
+                    <title>Allow Everything</title>
+                </all>
+                <admin>
+                    <children>
+                        <system>
+                            <children>
+                                <config>
+                                    <children>
+                                        <googlecustomerreviews_section translate="title" module="googlecustomerreviews">
+                                            <title>Google Customer Reviews </title>
+                                            <sort_order>200</sort_order>
+                                        </googlecustomerreviews_section>
+                                    </children>
+                                </config>
+                            </children>
+                        </system>
+                    </children>
+                </admin>
+            </resources>
+        </acl>
+        <layout>
+            <updates>
+                <googlecustomerreviews>
+                    <file>googlecustomerreviews.xml</file>
+                </googlecustomerreviews>
+            </updates>
+        </layout>
+    </adminhtml>   
+    <global>
+        <events>
+            <admin_system_config_changed_section_googlecustomerreviews_section>
+                <observers>
+                    <SetuBridge_Googlecustomerreviews_model_observer>
+                        <type>singleton</type>
+                        <class>SetuBridge_Googlecustomerreviews_Model_Observer</class>
+                        <method>lMcheck</method>
+                    </SetuBridge_Googlecustomerreviews_model_observer>
+                </observers>
+            </admin_system_config_changed_section_googlecustomerreviews_section>  
+            <admin_session_user_login_success>
+                <observers>
+                    <SetuBridge_Googlecustomerreviews_model_observer>
+                        <type>singleton</type>
+                        <class>SetuBridge_Googlecustomerreviews_model_observer</class>
+                        <method>lMcheck</method>
+                    </SetuBridge_Googlecustomerreviews_model_observer>
+                </observers>
+            </admin_session_user_login_success>
+        </events>
+        <blocks>
+            <googlecustomerreviews>
+                <class>SetuBridge_Googlecustomerreviews_Block</class>
+            </googlecustomerreviews>
+        </blocks>
+        <helpers>
+            <googlecustomerreviews>
+                <class>SetuBridge_Googlecustomerreviews_Helper</class>
+            </googlecustomerreviews>
+        </helpers>
+    </global>
+</config>

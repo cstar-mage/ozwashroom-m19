@@ -1,0 +1,50 @@
+<?php
+    $categoryId = 47; 
+    $category = Mage::getModel('catalog/category')->load($categoryId);
+
+    $products = Mage::getModel('catalog/product')
+        ->getCollection()
+        ->addCategoryFilter($category)
+        ->load();
+        
+        
+ ?>      
+
+       <div class="products-grid products-grid--max-<?php echo $_columnCount; ?>-col">
+        <?php $i=0; foreach ($products as $_products): ?>
+        <?php $_product = Mage::getModel('catalog/product')->load($_products->getId()); ?>
+            <?php /*if ($i++%$_columnCount==0): ?>
+            <?php endif*/ ?>
+            <div class="proborbg2">
+				<div class="bor" style="height:210px !important;">
+                <a style="border:none;" href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $this->stripTags($this->getImageLabel($_product, 'small_image'), null, true) ?>" class="product-image">
+                    <?php $_imgSize = 145; ?>
+                    <img id="product-collection-image-<?php echo $_product->getId(); ?>"  width="162" height="145"
+                         src="<?php echo $this->helper('catalog/image')->init($_product, 'small_image')->resize($_imgSize); ?>"
+                         alt="<?php echo $this->stripTags($this->getImageLabel($_product, 'small_image'), null, true) ?>" />
+                </a>
+				</div>
+             	<h3 style="padding:10px 0 5px 17px;"><a href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $this->stripTags($_product->getName(), null, true) ?>">
+				<?php 
+				$name=$_product->getName();
+				if(strlen($name)>40)
+					echo substr($name,0,40).'...'; 
+				else
+					echo $name;
+				?>
+                
+                </a></h3>
+                <h4><?php echo $_product->getSku();?></h4>  
+                   <h2><?php echo $this->getPriceHtml($_product, true) ?>
+                        <?php if(!$_product->canConfigure() && $_product->isSaleable()): ?>
+                            <button type="button" title="<?php echo $this->quoteEscape($this->__('Add to Cart')) ?>" class="button btn-cart greenbg" onclick="setLocation('<?php echo $this->getAddToCartUrl($_product) ?>')"><img src="<?php echo $this->getSkinUrl('img/cart.png')?>" width="39" height="34"></button>
+                        <?php endif; ?>
+                    </h2>
+                
+            </div>
+            <?php /*if ($i%$_columnCount==0 || $i==$_collectionSize): ?>
+            <?php endif*/ ?>
+        <?php endforeach ?>
+    </div>
+
+

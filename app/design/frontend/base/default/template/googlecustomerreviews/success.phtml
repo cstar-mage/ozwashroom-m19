@@ -1,0 +1,72 @@
+<?php
+/** Setubridge Technolabs
+* http://www.setubridge.com/
+* @author SetuBridge
+* @license http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
+**/  
+?> 
+<?php  /*START Google Certified Shops Order*/  ?>
+
+<?php $_gtsHelper=Mage::helper('googlecustomerreviews');
+$gDialogbox=Mage::helper('googlecustomerreviews')->getGoogleDialogboxPosition(); ?>
+<?php if(!$_gtsHelper->isValidLicence() && !$_gtsHelper->isActive()) return; ?>
+<?php 
+$_orderId = $this->getOrderId();
+if(!$_orderId){
+    foreach( $_orderIds = $this->getOrderIds() as $orderid ): 
+        $_orderId=$orderid;
+        endforeach;
+}
+if(!$_orderId) return; 
+$order = Mage::getModel('sales/order')->loadByIncrementId($_orderId);
+$customer = Mage::getModel('customer/customer')->load($order->getCustomerId());
+$address=  $order->getBillingAddress();
+if(!$address->getEmail()) $address = $order->getShippingAddress();
+$backorder = array(); // some backorder logic
+$digital = array(); // some download logic
+$domain1=parse_url(Mage::getBaseUrl (Mage_Core_Model_Store::URL_TYPE_WEB));
+$domain=$domain1["host"];
+$items = $order->getAllItems();
+foreach ($items as $item):
+    $product = Mage::getModel('catalog/product')->setStoreId($order->getStoreId())->load($item->getProductId());
+    $stockItem = Mage::getModel('cataloginventory/stock_item')->loadByProduct($item->getProductId());
+    $GoogleInv = $stockItem->getQty();
+    $GoogleMS = $stockItem->getData('manage_stock');
+    if ($GoogleInv <= 0 && $GoogleMS ==1 && $stockItem->getBackorders()==1)
+        $backorder[] = "Y";
+    else 
+        $backorder[] = "N";
+    if ($product->getData('type_id')=="downloadable" || $product->getData('type_id')=="vertual")
+        $digital[] = "Y";
+    else 
+        $digital[] = "N";
+    endforeach;
+$isBackordered = "N"; 
+
+if(in_array('Y',$backorder)) $isBackordered = "Y"; 
+$email=$address->getEmail();
+?>
+<script src="https://apis.google.com/js/platform.js?onload=renderOptIn" async defer></script>
+<script data-keepinline="true">
+    window.renderOptIn = function() {
+        window.gapi.load('surveyoptin', function() {
+            window.gapi.surveyoptin.render(
+                {
+                    "merchant_id": <?php echo $_gtsHelper->getGoogleMerchantId(); ?>,
+                    "order_id": "<?php echo $_orderId; ?>",
+                    "email": "<?php echo  $email ; ?>",
+                    "delivery_country": "<?php echo $address->getCountryId(); ?>",
+                    "estimated_delivery_date": "<?php echo $_gtsHelper->getDeliveryDays($order->getCreatedAt(),$isBackordered); ?>",
+                    "opt_in_style": "<?php echo $gDialogbox['basePos'] ; ?>"
+            });
+        });
+    }
+</script>    
+<?php  /*END Google Certified Shops Order*/ ?>
+   <!-- BEGIN GCR Language Code -->
+    <script data-keepinline="true">
+        window.___gcfg = {
+            lang: '<?php echo Mage::helper('googlecustomerreviews')->getMerchantLang(); ?>'
+        };
+    </script>
+    <!-- END GCR Language Code -->

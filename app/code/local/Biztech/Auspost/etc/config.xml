@@ -1,0 +1,213 @@
+<?xml version="1.0"?>
+<!-- 
+/**
+* @category   Biztech
+* @package    Biztech_Auspost
+* @author     ModuleCreator
+* @license    http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
+*/
+-->
+<config>
+    <modules>
+        <Biztech_Auspost>
+            <version>0.1.7</version>
+        </Biztech_Auspost>
+    </modules>
+    <frontend>
+        <routers>
+            <auspost>
+                <use>standard</use>
+                <args>
+                    <module>Biztech_Auspost</module>
+                    <frontName>auspost</frontName>
+                </args>
+            </auspost>
+        </routers>
+    </frontend>
+    
+    <admin>
+        <routers>
+                <adminhtml>
+                    <args>
+                    <modules>
+                        <auspost after="Mage_Adminhtml">Biztech_Auspost_Adminhtml</auspost>
+                        </modules>
+                    </args>
+                </adminhtml>
+        </routers>
+    </admin>
+
+    <adminhtml>
+        <acl>
+            <resources>
+                <all>
+                    <title>Allow Everything</title>
+                </all>
+                <admin>
+                    <children>
+                        <Biztech_Auspost>
+                            <title>Australian Post Module</title>
+                            <sort_order>10</sort_order>
+                        </Biztech_Auspost>
+                        <system>
+                            <children>
+                                <config>
+                                    <children>
+                                        <auspost>
+                                            <title>Australian Post</title>
+                                        </auspost>
+                                    </children>
+                                </config>
+                            </children>
+                        </system>
+                    </children>
+                </admin>
+            </resources>
+        </acl>
+        <layout>
+            <updates>
+                <auspost>
+                    <file>auspost.xml</file>
+                </auspost>
+            </updates>
+        </layout>
+
+        <events>
+            <admin_system_config_changed_section_auspost>
+                <observers>
+                    <auspost>
+                        <type>model</type>
+                        <class>auspost/observer</class>
+                        <method>checkKey</method>
+                    </auspost>
+                </observers>
+            </admin_system_config_changed_section_auspost>
+            <admin_system_config_changed_section_eparcel>
+                <observers>
+                    <auspost>
+                        <type>model</type>
+                        <class>auspost/observer</class>
+                        <method>checkKey</method>
+                    </auspost>
+                </observers>
+            </admin_system_config_changed_section_eparcel>
+            <admin_system_config_changed_section_aupost_shipment>
+                <observers>
+                    <auspost>
+                        <type>model</type>
+                        <class>auspost/observer</class>
+                        <method>checkKey</method>
+                    </auspost>
+                </observers>
+            </admin_system_config_changed_section_aupost_shipment>
+            <sales_order_shipment_save_after>
+                <observers>
+                    <auspost>
+                        <type>model</type>
+                        <class>auspost/observer</class>
+                        <method>createShipmentAndTrackDetails</method>
+                    </auspost>
+                </observers>
+            </sales_order_shipment_save_after>
+        </events>
+    </adminhtml>   
+    <global>
+        <sales>
+            <quote>
+                <item>
+                    <product_attributes>
+                        <length/>
+                        <width/>
+                        <height/>
+                    </product_attributes>
+                </item>
+            </quote>
+        </sales>
+        <models>
+            <auspost>
+                <class>Biztech_Auspost_Model</class>
+                <resourceModel>auspost_mysql4</resourceModel>
+            </auspost>
+            <auspost_mysql4>
+                <class>Biztech_Auspost_Model_Mysql4</class>
+                <entities>
+                    <auspost>
+                        <table>auspost</table>
+                    </auspost>
+                    <eparcel>
+                        <table>auspost_eparcel</table>
+                    </eparcel>
+                </entities>
+            </auspost_mysql4>
+        </models>
+        <resources>
+            <auspost_setup>
+                <setup>
+                    <module>Biztech_Auspost</module>
+                    <class>Mage_Catalog_Model_Resource_Eav_Mysql4_Setup</class>
+                </setup>
+                <connection>
+                    <use>core_setup</use>
+                </connection>
+            </auspost_setup>
+            <auspost_write>
+                <connection>
+                    <use>core_write</use>
+                </connection>
+            </auspost_write>
+            <auspost_read>
+                <connection>
+                    <use>core_read</use>
+                </connection>
+            </auspost_read>
+        </resources>
+        <blocks>
+            <auspost>
+                <class>Biztech_Auspost_Block</class>
+            </auspost>
+        </blocks>
+        <helpers>
+            <auspost>
+                <class>Biztech_Auspost_Helper</class>
+            </auspost>
+        </helpers>
+      
+    </global>
+    <default>
+        <auspost>
+            <autofillpostcode>
+                <active>0</active>
+                <max_allowed>0</max_allowed>
+            </autofillpostcode>
+        </auspost>
+        <carriers>
+            <auspost>
+                <active>0</active>
+                <title>Australia Post</title>
+                <method>Australia Post</method>
+                <specificerrmsg>This shipping method is currently unavailable. If you would like to ship using this shipping method, please contact us.</specificerrmsg>
+                <model>auspost/carrier_auspost</model>
+                <weight_unit>kg</weight_unit>
+                <length_value>10</length_value>
+                <height_value>10</height_value>
+                <width_value>10</width_value>
+            </auspost>
+            <eparcel>
+                <active>0</active>
+                <sallowspecific>0</sallowspecific>
+                <condition_name>package_weight</condition_name>
+                <model>auspost/carrier_eparcel</model>
+                <name>Australia Post eParcel</name>
+                <title>Australia Post eParcel</title>
+                <sallowspecific>1</sallowspecific>
+                <specificcountry>AU</specificcountry>
+                <specificerrmsg>This shipping method is currently unavailable. If you would like to ship using this shipping method, please contact us.</specificerrmsg>
+                <handling_type>F</handling_type>
+                <signature_required>0</signature_required>
+                <signature_cost>6.44</signature_cost>
+                <insurance_step>100.0</insurance_step>
+                <insurance_cost_per_step>1.05</insurance_cost_per_step>
+            </eparcel>
+        </carriers>
+    </default>
+</config>

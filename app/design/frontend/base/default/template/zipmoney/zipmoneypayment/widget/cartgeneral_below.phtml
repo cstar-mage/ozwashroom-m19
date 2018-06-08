@@ -1,0 +1,25 @@
+<?php
+if ($this->isShow()):
+    $this->getAssets();
+    ?>
+
+    <script type="text/javascript">
+        document.observe("dom:loaded", function() {
+            var vElementId = 'zipmoney-widget-general';
+            if (window.ZipMoneyWidgetModal == undefined) {
+                var vInstanceName = 'window.ZipMoneyWidgetModal';
+                var vDefaultContent = '<?php echo Mage::helper("zipmoneypayment/widget")->getDefaultContent(); ?>';
+                var aPageContents = <?php echo json_encode(Mage::helper("zipmoneypayment/widget")->getAllTermsPages()); ?>;
+                window.ZipMoneyWidgetModal = new WidgetModal(vInstanceName, vElementId, aPageContents, vDefaultContent);
+                window.ZipMoneyWidgetModal.addListenerToMultipleElements('.zip-widget-general');
+            }
+        });
+    </script>
+    <div id="zipmoney-widget-general-cart" class="zip-widget-general">
+        <a id="zipmoney-widget-general" class="zip-hover" >
+            <img id="zipmoney-express-widget-img" src="<?php echo $this->getWidgetUrl(); ?>" alt="<?php echo $this->__('BUY NOW, PAY LATER'); ?>" />
+        </a>
+    </div>
+    <?php
+endif;
+?>
