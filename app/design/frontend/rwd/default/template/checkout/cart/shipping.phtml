@@ -24,6 +24,7 @@
  * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
  */
 ?>
+
 <?php /** @var $this Mage_Checkout_Block_Cart_Shipping */ ?>
 <div class="shipping">
     <h2><?php echo $this->__('Estimate Shipping and Tax') ?></h2>
@@ -152,4 +153,9 @@
         //]]>
         </script>
     </div>
+	<?php 
+       $quote = Mage::getModel('checkout/session')->getQuote(); 
+       $shippingData = $quote->getShippingAddress()->getData();
+       print_r($shippingData['telephone']);	   
+  ?>
 </div>
