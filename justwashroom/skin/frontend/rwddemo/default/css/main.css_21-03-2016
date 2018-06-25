@@ -1,0 +1,973 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;}
+	
+/*---------------------------------------------------------------
+---------------------------------------------------------------*/
+#blank{ padding:0}
+.top{background: #000}
+.topbanner{ margin:0 5px 0 0; padding:0}
+.topbanner2{ margin:0 0 0 0; padding:0;border:0px solid red; float:right}
+
+.logo{ padding-top:15px}
+.container {max-width:960px; border:0px solid red ; padding:0; margin:0 auto}
+.top p{font-family: 'PT Sans', sans-serif; font-size:14px; color:#FFF; text-align:left; text-decoration:none; font-weight:normal; padding:0; margin:0; line-height:34px}
+.top .flashtxt{font-family: 'PT Sans', sans-serif; font-size:14px; color:#FFF; text-align: right; text-decoration:none; font-weight:normal; padding:0; margin:0; text-transform:uppercase;}
+.top .flashtxt a{color:#FFF; text-decoration:none}
+.top .flashtxt a:hover{color:#33b1e5; text-decoration:none}
+
+
+
+.card{ float:right; border:0px solid red}
+
+.leftsidebar{ background-color:#004897 !important; padding:14px 9px; }
+
+.leftsidebar h2{font-family: 'Oswald', sans-serif; font-size:20px; color:#FFF; text-align: left; text-decoration:none; font-weight:normal; padding:0; margin:0}
+
+.inputbg{ background-color:#004897 !important; padding:0 !important; margin:0 !important;border:0px solid red ; height:50px}
+.inputfield{ width:100%; background-color:#e6edf6 !important; border-radius:none!important; padding:15px 30px !important; margin:0 ; border:0; color:#888888;font-family: 'PT Sans', sans-serif; font-weight:normal; font-size:15px; border:0px solid red}
+
+.cartbg{ background-color:#004897 !important; padding:10px }
+
+.cartbg h2{  font-family: 'PT Sans', sans-serif; font-size:15px; color:#FFF; text-align: right; text-decoration:none; font-weight:normal; padding:0; margin:0; text-transform:uppercase; line-height:30px}
+
+
+.h2 span{ background-color:#a8e31e !important; border-radius:30px; width:30px; height:20px; float:right; border:0px solid red}
+.headerbg{ background-color:#e9e9e9 !important;}
+
+.leftmenu{ background-color:#009edf !important; border:0px solid red !important; padding:0 !important; height:458px; }
+.leftmenuinner{ background-color:#fff !important; color:#000 !important; padding:20px !important; border:0px solid #0F0 !important; width:100%}
+
+
+.leftmenuinner2{ background: url(../img/navicon.png) right no-repeat; padding:0; list-style-type:none; color:#FFF ;font-family: 'PT Sans', sans-serif; font-size:14px; text-transform:uppercase; line-height:21.7px !important;margin:0; width:70%; background-color:transparent !important}
+
+
+.leftmenu ul{ list-style-type:none; padding:0; margin:0;width:100%; border:0px solid red; float:left !important}
+.leftmenu ul li{ list-style-type:none;padding:0 ; margin:0;width: 100%; border:0px solid red; float:left !important}
+.leftmenu ul li a{ background: url(../img/navicon.png) right no-repeat; padding:0 20px 0 0; list-style-type:none; color:#FFF;font-family: 'PT Sans', sans-serif; font-size:13px; text-transform:uppercase; line-height:21.7px !important;margin:0;}
+.leftmenu ul li a:hover{ background: url(../img/navicon.png) right no-repeat; padding:0 20px 0 0; list-style-type:none; color:#004897;font-family: 'PT Sans', sans-serif; font-size:13px; text-transform:uppercase; line-height:21.7px !important;margin:0;}
+
+
+.leftmenuinner{ background-color:#fff !important; color:#000 !important; padding:20px !important; border:0px solid #0F0 !important; width:100%}
+
+
+.leftmenuinner2{ background: url(../img/navicon.png) right no-repeat; padding:0; list-style-type:none; color:#FFF ;font-family: 'PT Sans', sans-serif; font-size:14px; text-transform:uppercase; line-height:21.7px !important;margin:0; width:70%; background-color:transparent !important}
+
+
+#leftmenu2 ul{ list-style-type:none; padding:0; margin:0;width:100%; border:0px solid red; float:left !important}
+.leftmenu2 ul li{ list-style-type:none;padding:0 15% 0 0; margin:0;width: auto; border:0px solid red; float:left !important}
+.leftmenu2 ul li a{ background: url(../img/navicon.png) right no-repeat; padding:0 20px 0 0; list-style-type:none; color:#FFF;font-family: 'PT Sans', sans-serif; font-size:14px; text-transform:uppercase; line-height:21.7px !important;margin:0;}
+.leftmenu2 ul li a:hover{ background: url(../img/navicon.png) right no-repeat; padding:0 20px 0 0; list-style-type:none; color:#004897;font-family: 'PT Sans', sans-serif; font-size:14px; text-transform:uppercase; line-height:21.7px !important;margin:0;}
+
+
+
+
+
+
+.leftmenu .icontoggle{ background-color:#fff !important;}
+.leftmenu .iconbar{ background-color:#004897 !important;}
+
+.bannercap{ background-color:#eff3f6 !important; padding:10px}
+.bannercap h2{font-family: 'Oswald', sans-serif; font-size:29px; color:#004896; text-align: left; text-decoration:none; font-weight:normal; padding:0; margin:0; line-height:62px !important; text-shadow:none !important}
+.bannercap h3{font-family: 'Oswald', sans-serif; font-size:18px; color:#000; text-align: left; text-decoration:none; font-weight:normal; padding:0; margin:0;text-shadow:none !important}
+
+.bannercap .btn{font-family: 'Oswald', sans-serif; font-size:20px; color:#004897; text-align: left; text-decoration:none; font-weight:normal; padding:0 10px; margin:0;text-shadow:none !important; background-color:#a8e31e; float:right; margin-top:-50px}
+
+.leftarrow{  margin:140% 0 0 0}
+.rightarrow{ margin:140% 0 0 0}
+
+.middlecon{  margin:3% 0 2% 0; border:0px solid red}
+
+.boxcon{ background-color:#FFF; padding:10% 12%; border:0px solid red; width:100% !important; margin:0 2%; border:0px solid red}
+.boxconimg{ border:0px solid red; width:155px !important; height:124px !important; margin:0 auto; text-align:center}
+
+.boxconb{ background-color:#3b3b3b; padding:2% 10%; color:#FFF; text-transform:uppercase; text-align:center;border:0px solid red; width:100% !important; margin:0 2% 10% 2%; height:50px}
+.boxconb img{ width:100%}
+
+
+.left{margin-left:0 !important; padding-left:0 !important; border:0px solid red}
+.right{padding:0}
+.top{padding:0}
+.middle{padding:0; margin:0}
+
+.producsec{ padding:2.5% 0  }
+
+
+
+
+.proborbg{ width:24.6%; float:left; margin:0 5px 5px 0;border:1px solid #e9e9e9; padding:15px 0;height:323px}
+.proborbg .bor{ border:1px solid #e9e9e9; width:200px !important; height:168px !important; margin:0 auto}
+.proborbg .bor img{margin:0 auto; text-align:center !important; float:none;border:0px solid red}
+.proborbg h3{font-family: 'PT Sans', sans-serif; font-size:15px; color:#000; text-align: left; text-decoration:none; font-weight:bold; padding:24px 0 5px 17px; margin:0; }
+.proborbg h4{font-family: 'PT Sans', sans-serif; font-size:13px; color:#aca6a6; text-align: left; text-decoration:none; font-weight:bold; padding:0 0 0 17px; margin:0; line-height:20px}
+.proborbg h2{font-family: 'PT Sans', sans-serif; font-size:16px !important;font-weight:bold; color:#00ade5; text-align: left; text-decoration:none;  padding:18px 0 0 17px; margin:0; line-height:30px}
+.proborbg h2 span{font-size:16px; color:#000;font-weight: normal;}
+.proborbg .greenbg{ background-color:#00ade5; float:right; padding:2px 10px}
+
+
+.proborbgchild{ width:24.6%; float: right; margin:0 0 5px 0;border:1px solid #e9e9e9; padding:15px 0; height:323px}
+.proborbgchild .bor{ border:1px solid #e9e9e9; width:200px !important; height:168px !important; margin:0 auto}
+.proborbgchild .bor img{margin:0 auto; text-align:center !important; float:none;border:0px solid red}
+.proborbgchild h3{font-family: 'PT Sans', sans-serif; font-size:15px; color:#000; text-align: left; text-decoration:none; font-weight:bold; padding:24px 0 5px 17px; margin:0; }
+.proborbgchild h4{font-family: 'PT Sans', sans-serif; font-size:13px; color:#aca6a6; text-align: left; text-decoration:none; font-weight:bold; padding:0 0 0 17px; margin:0; line-height:20px}
+.proborbgchild h2{font-family: 'PT Sans', sans-serif; font-size:24px; color:#00ade5; text-align: left; text-decoration:none; font-weight: normal; padding:18px 0 0 17px; margin:0; line-height:30px}
+.proborbgchild h2 span{font-size:16px; color:#000;font-weight:bold;}
+.proborbgchild .greenbg{ background-color:#00ade5; float:right; padding:2px 10px}
+
+.prosp{ margin-bottom:30px; border:}
+.newslatter{ background-color:#009edf; border:1px solid #dddbdb; padding:23px 12px}
+
+@media screen and (max-width: 768px) {
+    .newslatter{  padding:40px 12px !important; }
+}
+.newslatter h3{font-family: 'PT Sans', sans-serif; font-size:16px; color:#fff; text-align: left; text-decoration:none; font-weight:bold; padding:0 0 17px 0; margin:0;}
+
+.input{ border:1px solid #f2f2f2; width:166px; color:#888888; font-size:11px; padding:6px 10px; border:1px solid}
+.inputbtn{background:#97cb1e; padding:5px 7px 3px 7px; /*margin-left:-5px*/}
+
+.probor{ border:1px solid #e9e9e9; padding:15px}
+.probor img{ border:1px solid #e9e9e9; width:200px; height:168px}
+
+.customer{font-family: 'PT Sans', sans-serif; font-size:24px; color:#000; text-align: center; text-decoration:none; font-weight: normal; padding:0 0 20px 0; margin:0; }
+
+.footer{ background:#404040; padding:40px 0}
+.footer h2{font-family: 'PT Sans', sans-serif; font-size:15px; color:#fff; text-align: left; text-decoration:none; font-weight: normal; padding:0 0 16px 0; margin:0;}
+.footer h3{font-family: 'PT Sans', sans-serif; font-size:15px; color:#fff; text-align: left; text-decoration:none; font-weight: normal; padding:0; margin:0;}
+.footer p{font-family: 'PT Sans', sans-serif; font-size:11px; color:#fff; text-align: left; text-decoration:none; font-weight: normal; padding:0; margin:0;}
+
+.footer ul{ list-style-type:none !important}
+
+.footer li a{font-family:Myriad Pro; font-size:11px; color:#fff; text-align: left; text-decoration:none; font-weight: normal; padding:0; margin:0; line-height:16px; list-style-type:none !important}
+
+.social{ background-color:#FFF;}
+
+/* //inner */
+
+.innerspace{ margin-bottom:83px; border:0px solid red}
+.innerspace2{ margin-bottom:40px; border:0px solid red}
+
+.producsecheading{font-family: 'Oswald', sans-serif; font-size:25px; color:#000; text-align: left; text-decoration:none; font-weight: bold; padding:0 0 10px 0; margin:0; list-style-type:none !important }
+
+.producsec .innerng{ width:30%; background-color:#f9f9f9; margin:0 2% 3% 0; border:0px solid red; padding:0 2% 2% 2%}
+.producsec .innerng img{ text-align:center;}
+.producsec .innerng h6{font-family:Myriad Pro; font-size:11px; color:#1ddcf5; text-align: left; text-decoration:none; font-weight: bold; padding:22px 0 10px 0; margin:0;  text-transform:uppercase;}
+.producsec .innerng p{font-family:Myriad Pro; font-size:11px; color:#9092a0; text-align: left; text-decoration:none; font-weight: normal; padding:0; margin:0;  line-height:16px}
+
+.producsec .innerngchild{ width:30%; background-color:#f9f9f9; margin:0 !important; border:0px solid red; padding:0 2% 2% 2%; border:0px solid red}
+.producsec .innerngchild img{ text-align:center;}
+.producsec .innerngchild h6{font-family:Myriad Pro; font-size:11px; color:#1ddcf5; text-align: left; text-decoration:none; font-weight: bold; padding:0; margin:0; line-height:44px; text-transform:uppercase}
+.producsec .innerngchild p{font-family:Myriad Pro; font-size:11px; color:#9092a0; text-align: left; text-decoration:none; font-weight: normal; padding:0; margin:0; }
+
+
+.innerngh{font-family: 'PT Sans', sans-serif; font-size:20px; color:#000; text-align: left; text-decoration:none; font-weight: bold; padding:0 0 10px 0; margin:0;}
+.innerp{font-family: 'PT Sans', sans-serif; font-size:14px; color:#000; text-align: left; text-decoration:none; font-weight: normal; padding:0 0 30px 0; margin:0; line-height:18px}
+
+.innerimg{ float:left; margin:10px 0 0 0}
+
+
+/* //product */
+.producbannercap{ background:url(../img/bgopacity.png) no-repeat !important; padding:3.8%; top:20% !important;left:12% !important; width:40%; position:absolute;
+
+}
+.producbannercap h2{font-family: 'Oswald', sans-serif; font-size:40px; color:#fff; text-align: center; text-decoration:none; font-weight: bold; padding:0; margin:0; text-shadow:none }
+
+
+.producbannercap h3{font-family: 'PT Sans', sans-serif; font-size:30px; color:#fff !important; text-align: center; text-decoration:none; font-weight:bold; padding:0; margin:0;text-shadow:none !important; line-height:65px;}
+
+.producbannercap .btn{font-family: 'PT Sans', sans-serif; font-size:30px; color:#000 !important; text-align: center !important; text-decoration:none; font-weight:bold !important; padding:0; margin:0;text-shadow:none !important; margin-left:25%/* For IE8 and earlier */}
+
+.producbannercap .btn a{font-family: 'PT Sans', sans-serif; font-size:30px; color:#000 !important; text-align: center !important; text-decoration:none; font-weight:bold !important; padding:0; margin:0;text-shadow:none !important; margin-left:25%/* For IE8 and earlier */}
+
+
+
+
+.proborbg2{ width:24.3%; float:left; margin:0 5px 5px 0;border:1px solid #e9e9e9; padding:15px 0;}
+.proborbg2 .bor{ border:1px solid #e9e9e9; width:200px !important; height:168px !important; margin:0 auto}
+.proborbg2 .bor img{margin:0 auto; text-align:center !important; float:none;border:0px solid red}
+.proborbg2 h3{font-family: 'PT Sans', sans-serif; font-size:15px; color:#000; text-align: left; text-decoration:none; font-weight:bold; padding:24px 0 5px 17px; margin:0; }
+.proborbg2 h4{font-family: 'PT Sans', sans-serif; font-size:13px; color:#aca6a6; text-align: left; text-decoration:none; font-weight:bold; padding:0 0 0 17px; margin:0; line-height:20px}
+.proborbg2 h2{font-family: 'PT Sans', sans-serif; font-size:16px; color:#00ade5; text-align: left; text-decoration:none; font-weight:bold; padding:18px 0 0 17px; margin:0; line-height:30px}
+.proborbg2 h2 span{font-size:16px; color:#000;font-weight:normal; }
+.proborbg2 .greenbg{ background-color:#00ade5; float:right; padding:2px 10px}
+
+
+.proborbg2child{ width:24.5%; float: right; margin:0 0 5px 0;border:1px solid #e9e9e9; padding:15px 0; height:323px}
+.proborbg2child .bor{ border:1px solid #e9e9e9; width:200px !important; height:168px !important; margin:0 auto}
+.proborbg2child .bor img{margin:0 auto; text-align:center !important; float:none;border:0px solid red}
+.proborbg2child h3{font-family: 'PT Sans', sans-serif; font-size:15px; color:#000; text-align: left; text-decoration:none; font-weight:bold; padding:24px 0 5px 17px; margin:0; }
+.proborbg2child h4{font-family: 'PT Sans', sans-serif; font-size:13px; color:#aca6a6; text-align: left; text-decoration:none; font-weight:bold; padding:0 0 0 17px; margin:0; line-height:20px}
+.proborbg2child h2{font-family: 'PT Sans', sans-serif; font-size:24px; color:#00ade5; text-align: left; text-decoration:none; font-weight: normal; padding:18px 0 0 17px; margin:0; line-height:30px}
+.proborbg2child h2 span{font-size:16px; color:#000;font-weight:bold;}
+.proborbg2child .greenbg{ background-color:#00ade5; float:right; padding:2px 10px}            
+            
+
+.headingtag{ background-color:#009edf; padding:12px; margin:20px 0 20px 0}
+.headingtag h2{font-family: 'Oswald', sans-serif; font-size:18px; color:#fff; text-align: left; text-decoration:none; font-weight: normal; padding:0; margin:0; line-height:18px}
+
+.nxtarrow{ background:url(../img/proprv.png) no-repeat; border:0px solid red !important; z-index:999;top:-15% !important; width:9px; height:19px; right:-540% !important; position:absolute}
+
+.prvarrow{ background: url(../img/pronxt.png) no-repeat; border:0px solid red !important; z-index:99999;top:-15% !important; width:9px; height:19px; right:10% !important; position:absolute}
+
+
+#dropbg{ background:url(../img/dropdbg.png) no-repeat; width:184px; height:31px; margin:10px 0;font-family: 'Oswald', sans-serif; font-size:12px; border:0; color:#000; padding:0 0 0 15%}
+#droparrow{ color:#FFF; margin:0 0 0 10px}
+
+#dropbg2{ background:url(../img/dropdbg2.png) no-repeat; width:273px; height:31px; margin:10px 0;font-family: 'Oswald', sans-serif; font-size:12px; border:0; color:#000; padding:0 0 0 15%}
+
+#dropbg2inner{font-family: 'Oswald', sans-serif; font-size:12px; border:0; color:#000; padding:6px 0 0 15px; background:none !important}
+#dropbg2inner #con{font-family: 'PT Sans', sans-serif; font-size:12px !important; border:0; color:#000; padding:0; background:none !important; font-weight:normal; line-height:24px}
+
+#droparrow{ color:#FFF; margin:0 5px 0 5px}
+
+/* // Sudo Slider */
+#slider {width:1000px} /* It can be a good idea to set a width of the slider, mostly so Old-IE can figure out how to render */
+
+/* Numeric Navigation */
+ol.numericControls {margin:1em 0;padding:0;height:28px;	}
+ol.numericControls li{margin:0 10px 0 0; padding:0;float:left;list-style:none;height:28px;line-height:28px;}
+ol.numericControls li a{float:left;height:28px;line-height:28px;border:1px solid #ccc;background:#DAF3F8;color:#555;padding:0 10px;text-decoration:none;}
+ol.numericControls li.current a{background:#5DC9E1;color:#fff;}
+ol.numericControls li a:focus, .prevBtn a:focus, .nextBtn a:focus{outline:none;}
+
+.graphic, .prevBtn, .nextBtn{margin:0;padding:0;display:block;overflow:hidden;text-indent:-8000px;}
+
+.prevBtn, .nextBtn {
+display:block;
+width:36px;
+height:47px;
+position:absolute;
+left:-40px;
+/*top:190px;*/
+top:80px;
+z-index:1000;
+background: url(../img/prv.png) no-repeat 0 0;
+cursor:pointer;
+}	
+.nextBtn{left:980px;}														
+.nextBtn {background:url(../img/nxt.png) no-repeat 0 0;}
+
+/* // Sudo Slider */
+<!--#slider2 {width:690px; margin-left:25px; border:0px solid red} /* It can be a good idea to set a width of the slider, mostly so Old-IE can figure out how to render */
+-->
+/* Numeric Navigation */
+/*ol.numericControls {margin:1em 0 ;padding:0;height:28px;	}
+ol.numericControls li{margin:0 10px 0 0; padding:0;float:left;list-style:none;height:28px;line-height:28px;}
+ol.numericControls li a{float:left;height:28px;line-height:28px;border:1px solid #ccc;background:#DAF3F8;color:#555;padding:0 10px;text-decoration:none;}
+ol.numericControls li.current a{background:#5DC9E1;color:#fff;}
+ol.numericControls li a:focus, .prevBtn a:focus, .nextBtn a:focus{outline:none;}
+
+.graphic, .prevBtn, .nextBtn{margin:0;padding:0;display:block;overflow:hidden;text-indent:-8000px;}
+
+.prevBtn, .nextBtn {display:block;width:36px;height:47px;position:absolute;left:10px;top:70px;z-index:1000;background: url(../img/bottomprv.png) no-repeat 0 0;cursor:pointer;}	
+.nextBtn{left:700px;}														
+.nextBtn {background:url(../img/bottomnxt.png) no-repeat 0 0;}
+*/
+
+
+
+
+.bigimg-left{ width:53.4%; float:left; background-color:#FFF !important; padding:10px; border:0px solid red; margin:0}
+.bigimg-right{ width:40%; float: right;border:0px solid red}
+.bigimg-right h2{font-family: 'Oswald', sans-serif; font-size:18px; color:#000; text-align: left; text-decoration:none; font-weight: normal; padding:0; margin:0; line-height:38px}
+
+.bigimg-right .price{font-family: 'Oswald', sans-serif; font-size:30px; color:#005ed0; text-align: left; text-decoration:none; font-weight: normal; padding:0; margin:0 0 10px 0; line-height:65px !important}
+
+
+.bigimg-right p{font-family: 'PT Sans', sans-serif; font-size:16px; color:#000; text-align: left; text-decoration:none; font-weight: normal; padding:0; margin:0 0 10px 0; line-height:18px}
+
+.bigimg-right p a{ color:#000;text-decoration:none;}
+.bigimg-right p a:hover{ color:#000;text-decoration: underline;}
+
+.bigimg-right p span{color:#6e6e6e;}
+
+.inputdrop{ width:40%;border:1px solid #d9d9d9 !important;float:left; margin:0 3% 0 0}
+
+.star{float: right;}
+#adonbg{ background-color:#77c9f7 !important;border-radius:0; padding:0 14px; border:0}
+
+#adonicon{color:#FFF; color:#FFF; font-size:20px}
+
+.carttxt{ width:40%; float: left; background-color:#004897;font-family: 'Oswald', sans-serif; font-size:14px; color:#fff; text-align: center; text-decoration:none; font-weight: normal; padding:0; margin:0; line-height:34px}
+
+.carttxt a{color:#fff;}
+.carttxt a:hover{color:#000; text-decoration:none}
+
+.wish{ margin:20px 0 !important}
+.keybor{ border-top:2px solid #009edf; margin:10px 0}
+.keybor h2{font-family: 'Oswald', sans-serif; font-size:20px; color:#005274; text-align: left; text-decoration:none; font-weight: normal; padding:0; margin:0; line-height:50px}
+
+.keybor li{ background:url(../img/featuricon.png) left no-repeat;font-family:Myriad Pro; font-size:18px; color:#000; text-align: left; text-decoration:none; font-weight: bold; padding:0 0 0 30px; margin:0; line-height:28px}
+
+
+.stocktxt{ width:40%; float: right; background-color:#009edf;font-family: 'Oswald', sans-serif; font-size:14px; color:#fff; text-align: center; text-decoration:none; font-weight: normal; padding:0; margin:0; line-height:34px}
+
+a img,:link img,:visited img { border: none; }
+table { border-collapse: collapse; border-spacing: 0; }
+:focus { outline: none; }
+*{margin:0;padding:0;}
+p, blockquote, dd, dt{margin:0 0 8px 0;line-height:1.5em;}
+fieldset {padding:0px;padding-left:7px;padding-right:7px;padding-bottom:7px;}
+fieldset legend{margin-left:15px;padding-left:3px;padding-right:3px;color:#333;}
+dl dd{margin:0px;}
+dl dt{}
+
+.clearfix:after{clear:both;content:".";display:block;font-size:0;height:0;line-height:0;visibility:hidden;}
+.clearfix{display:block;zoom:1}
+
+
+ul#thumblist{display:block;}
+ul#thumblist li{float:left;margin-right:5px;list-style:none;border:1px solid #CCC}
+ul#thumblist li a{display:block;border:0px solid #CCC;}
+ul#thumblist li a.zoomThumbActive{
+    border:0x solid red;
+}
+
+.jqzoom{
+
+	text-decoration:none;
+	float:left;
+	
+}
+
+
+.contact{}
+.contact img{ margin:10px 0}
+.contact h2{font-family: 'Oswald', sans-serif; font-size:25px; color:#000; text-align: left; text-decoration:none; font-weight:bold; padding:0; margin:0; line-height:52px !important; text-shadow:none !important}
+
+.contact p{font-family: 'PT Sans', sans-serif; font-size:13px; color:#000; text-align: left; text-decoration:none; font-weight:normal; padding:0 0 10px 0; margin:0; line-height:18px !important; text-shadow:none !important}
+
+.contact .add{ font-size:12px !important; color:#000; padding:0 10px 0 0; margin:0;}
+
+.contact .input{ background-color:#eeeeee; border-radius:none !important; padding:10px 10px 15px 35px !important; width:32.2%; color:#000 !important; border:0px solid red; margin:0 10px 0 0; float:left}
+
+.contact .input:hover{ background-color:#fff; border-radius:none !important; padding:9px 9px 14px 34px !important; width:32.2%; color:#000 !important; border:0px solid red; margin:0 10px 10px 0; border:1px solid #eeeeee}
+
+.contact .input2{ background-color:#eeeeee; border-radius:none !important; padding:10px 10px 15px 35px !important; width:32.2%; color:#000 !important; border:0px solid red; margin:0 0 10px 0; float: right; font-size:11px !important}
+
+.contact .input2:hover{ background-color:#fff; border-radius:none !important; padding:9px 9px 14px 34px !important; width:32.2%; color:#000 !important; border:0px solid red; margin:0 0 10px 0; border:1px solid #eeeeee}
+
+.contact .input3{ background-color:#eeeeee; border-radius:none !important; padding:10px 10px 15px 35px !important; width:100%; color:#646464 !important; border:0px solid red; margin:0 0 10px 0; float: right;font-size:11px !important}
+
+.contact .input3:hover{ background-color:#fff; border-radius:none !important; padding:9px 9px 14px 34px !important; width:100%; border:0px solid red; margin:0 0 10px 0; border:1px solid #eeeeee}
+
+
+
+.inputicon{ float:left; position:absolute; left:4% !important; padding-right:20px !important; border:0px solid red}
+.mailicon{ float:left; position:absolute; left:36% !important; padding-right:10px !important;border:0px solid red; margin:0 !important}
+.mailicon{ float:left; position:absolute; left:36% !important; padding-right:10px !important;border:0px solid red; margin:0 !important}
+
+.call{ float:left; position:absolute; left:68.5% !important; padding-right:20px !important}
+
+.messageicon{float:left; position:absolute; left:4% !important; padding-right:20px !important; top:45%}
+
+.btnc{ background-color:#000; border:1px solid #818181; padding:8px 15px; color:#FFF; text-transform:uppercase}
+
+.btnc:hover{ background-color:#eee; border:1px solid #818181; padding:8px 15px; color:#000; text-transform:uppercase}
+
+#inputmail{}
+
+.buytag{top:0; left:25%; position:absolute}
+.tagtag{top:0; left:50.4%; position:absolute}
+.buytag2{top:0; left:24.8%; position:absolute; border:0px solid red}
+.tagtag2{top:0; left:49.6%; position:absolute}
+
+#registertxt{padding:0 0 0 9%; border:0px solid red}
+#cardtxt{padding:0 0 0 6%; border:0px solid red}
+#24h{padding:0 0 0 4%; border:0px solid red}
+
+.scrollbars{width:240px;height:440px}
+.scrollbarstxt{ padding-left:10px}
+
+.followus{}
+
+@media screen and (min-width:320px) and (max-width: 640px) { 
+.scrollbars{width:95%;height: auto; margin-bottom:-20px}
+.followus{border-bottom:0px solid #49494a !important; padding:10px 0 !important}
+
+#registertxt{padding:10px 0 0 0; border:0px solid red}
+#cardtxt{padding:10px 0 10px 0; border-bottom:1px solid #49494a}
+#24h{padding:10px 0 0 0; border:0px solid red}
+
+
+.topbanner{ margin:0 auto !important; padding:0; text-align:center !important; float: none!important; border:0px solid red}
+.topbanner2{margin:0 auto !important; padding:0; text-align:center !important; float: none!important}
+
+.logo{margin:0 auto !important; padding:4% 0; text-align:center !important; float: none!important; border:0px solid red}
+.container {max-width:960px; border:0px solid red ; padding:0; margin:0 auto}
+.top p{font-family: 'PT Sans', sans-serif; font-size:12px; color:#FFF; text-align:left; text-decoration:none; font-weight:normal; padding:0; margin:0; line-height:18px}
+.top .flashtxt{font-family: 'PT Sans', sans-serif; font-size:11px; color:#FFF; text-align: left; text-decoration:none; font-weight:normal; padding:0; margin:0}
+.card{ float:right; border:0px solid red}
+
+.bannercap{ background-color:#eff3f6 !important; padding:10px}
+.bannercap h2{font-family: 'Oswald', sans-serif; font-size:14px; color:#004896; text-align: left; text-decoration:none; font-weight:normal; padding:0; margin:0; line-height:32px !important; text-shadow:none !important}
+.bannercap h3{font-family: 'Oswald', sans-serif; font-size:12px; color:#000; text-align: left; text-decoration:none; font-weight:normal; padding:0; margin:0;text-shadow:none !important}
+
+.bannercap .btn{font-family: 'Oswald', sans-serif; font-size:14px; color:#004897; text-align: left; text-decoration:none; font-weight:normal; padding:0 10px; margin:0;text-shadow:none !important; background-color:#a8e31e; float:right; margin-top:-30px}
+
+
+.boxcon{  width: auto !important; border:0px solid red; margin:0 auto !important; float:none !important; text-align:center !important}
+.boxconimg{ border:0px solid red; width:155px !important; height:124px !important; margin:0 auto; text-align:center}
+
+.boxconb{ background-color:#3b3b3b; padding:0 10%; color:#FFF; text-transform: capitalize; text-align:center;border:0px solid red; width:100% !important; margin:0 !important; height:35px; font-size:12px; line-height:32px}
+.boxconb img{ width: auto !important;margin:0 auto !important; float:none !important; text-align:center !important}
+
+.producsec{ padding:2.5% 0  }
+
+.proborbg{ width: 90% !important; float: none ; margin:0 auto !important;border:1px solid #e9e9e9; padding:0;height: auto; text-align:center !important }
+.proborbg img{ width: auto; float: none ; margin:0 auto !important;border:1px solid #e9e9e9; padding:0;height: auto; text-align:center !important }
+
+
+.proborbg .bor{ border:1px solid #e9e9e9; width: auto !important; height: auto !important; margin:0 auto; padding:10px 0}
+.proborbg .bor img{margin:0 auto; text-align:center !important; float:none;border:0px solid red}
+.proborbg h3{font-family: 'PT Sans', sans-serif; font-size:15px; color:#000; text-align: center; text-decoration:none; font-weight: normal; padding:0; margin:0; }
+.proborbg h4{font-family: 'PT Sans', sans-serif; font-size:13px; color:#aca6a6; text-align: center; text-decoration:none; font-weight: !important; padding:0; margin:0; line-height:20px}
+.proborbg h2{font-family: 'PT Sans', sans-serif; font-size:18px; color:#00ade5; text-align: left; text-decoration:none; font-weight: normal; padding:2% 0 0 17%; margin:0 0 10px 0; line-height:30px}
+.proborbg h2 span{font-size:14px; color:#000;font-weight: normal;}
+.proborbg .greenbg{ background-color:#00ade5; float: none; padding:3px 5px; margin-left:10px}
+.proborbg .greenbg img{ width:10%; border:0}
+
+
+.proborbgchild{ width: 90% !important; float: none ; margin:0 auto !important;border:1px solid #e9e9e9; padding:0;height: auto; text-align:center !important }
+.proborbgchild .bor{ border:1px solid #e9e9e9; width: auto !important; height: auto !important; margin:0 auto; padding:10px 0}
+
+.proborbgchild .bor img{margin:0 auto; text-align:center !important; float:none;border:0px solid red}
+.proborbgchild h3{font-family: 'PT Sans', sans-serif; font-size:15px; color:#000; text-align: center; text-decoration:none; font-weight: normal; padding:0; margin:0; }
+.proborbgchild h4{font-family: 'PT Sans', sans-serif; font-size:13px; color:#aca6a6; text-align: center; text-decoration:none; font-weight: !important; padding:0; margin:0; line-height:20px}
+.proborbgchild h2{font-family: 'PT Sans', sans-serif; font-size:18px; color:#00ade5; text-align: left; text-decoration:none; font-weight: normal; padding:2% 0 0 17%; margin:0 0 10px 0; line-height:30px}
+.proborbgchild h2 span{font-size:14px; color:#000;font-weight: normal;}
+.proborbgchild .greenbg{ background-color:#00ade5; float: none; padding:3px 5px; margin-left:10px}
+.proborbgchild .greenbg img{ width:10%; border:0}
+
+
+
+.footer{ background:#404040; padding:40px 0}
+.footerimg{ text-align: center !important; margin:0 auto; float: none}
+
+.footer h2{font-family: 'PT Sans', sans-serif; font-size:16px; color:#fff; text-align: center; text-decoration:none; font-weight: normal; padding:0 0 16px 0; margin:0;}
+.footer h3{font-family: 'PT Sans', sans-serif; font-size:15px; color:#fff; text-align: center; text-decoration:none; font-weight: normal; padding:0; margin:0;}
+.footer p{font-family: 'PT Sans', sans-serif; font-size:11px; color:#fff; text-align: center; text-decoration:none; font-weight: normal; padding:0; margin:0;}
+
+.footer ul{ list-style-type:none !important;text-align: center !important;border-bottom:1px solid #49494a; padding-bottom:10px}
+
+.footer li a{font-family:Myriad Pro; font-size:11px; color:#fff; text-align: center !important; text-decoration:none; font-weight: normal; padding:0; margin:0; line-height:16px; list-style-type:none !important}
+
+.social{ text-align: center !important; margin:0 0 2%  25%!important; float: none; border:0px solid red}
+
+.innerspace{ margin-bottom:20px}
+.producsecheading{font-family: 'Oswald', sans-serif; font-size:25px; color:#000; text-align: left; text-decoration:none; font-weight: bold; padding:0 0 10px 0; margin:0; list-style-type:none !important }
+
+.producsec .innerng{ width: auto; background-color:#f9f9f9; margin:0 2% 5% 0; border:0px solid red; padding:0 2% 2% 2%}
+.producsec .innerng img{ text-align:center;}
+.producsec .innerng h6{font-family:Myriad Pro; font-size:11px; color:#1ddcf5; text-align: left; text-decoration:none; font-weight: bold; padding:0; margin:0; line-height:44px; text-transform:uppercase}
+.producsec .innerng p{font-family:Myriad Pro; font-size:11px; color:#9092a0; text-align: left; text-decoration:none; font-weight: normal; padding:0; margin:0; }
+
+.producsec .innerngchild{ width: auto; background-color:#f9f9f9; margin:0 0 5% 0 !important; border:0px solid red; padding:0 2% 2% 2%; border:0px solid red}
+.producsec .innerngchild img{ text-align:center;}
+.producsec .innerngchild h6{font-family:Myriad Pro; font-size:11px; color:#1ddcf5; text-align: left; text-decoration:none; font-weight: bold; padding:0; margin:0; line-height:44px; text-transform:uppercase}
+.producsec .innerngchild p{font-family:Myriad Pro; font-size:11px; color:#9092a0; text-align: left; text-decoration:none; font-weight: normal; padding:0; margin:0; }
+
+
+.innerngh{font-family: 'PT Sans', sans-serif; font-size:20px; color:#000; text-align: left; text-decoration:none; font-weight: bold; padding:0 0 10px 0; margin:0;}
+.innerp{font-family: 'PT Sans', sans-serif; font-size:14px; color:#000; text-align: left; text-decoration:none; font-weight: normal; padding:0 0 30px 0; margin:0; line-height:18px}
+
+.innerimg{ float:left; margin:10px 0 0 0}
+
+
+
+
+.proborbg2{width:90% !important; float: none; margin:0 auto !important;border:1px solid #e9e9e9; padding:15px 0; height: auto}
+.proborbg2 .bor{ border:1px solid #e9e9e9; width:200px !important; height:168px !important; margin:0 auto}
+.proborbg2 .bor img{margin:0 auto; text-align:center !important; float:none;border:0px solid red}
+.proborbg2 h3{font-family: 'PT Sans', sans-serif; font-size:15px; color:#000; text-align: left; text-decoration:none; font-weight:bold; padding:10px 0 5px 17px; margin:0; }
+.proborbg2 h4{font-family: 'PT Sans', sans-serif; font-size:13px; color:#aca6a6; text-align: left; text-decoration:none; font-weight:bold; padding:0 0 0 17px; margin:0; line-height:20px}
+.proborbg2 h2{font-family: 'PT Sans', sans-serif; font-size:24px; color:#00ade5; text-align: left; text-decoration:none; font-weight: normal; padding:18px 0 0 17px; margin:0; line-height:30px}
+.proborbg2 h2 span{font-size:16px; color:#000;font-weight:bold;}
+.proborbg2 .greenbg{ background-color:#00ade5; float:right; padding:2px 10px}
+
+
+.proborbg2child{ width: auto; float: none; margin:0;border:1px solid #e9e9e9; padding:15px 0; height: auto}
+.proborbg2child .bor{ border:1px solid #e9e9e9; width:200px !important; height:168px !important; margin:0 auto}
+.proborbg2child .bor img{margin:0 auto; text-align:center !important; float:none;border:0px solid red}
+.proborbg2child h3{font-family: 'PT Sans', sans-serif; font-size:15px; color:#000; text-align: left; text-decoration:none; font-weight:bold; padding:24px 0 5px 17px; margin:0; }
+.proborbg2child h4{font-family: 'PT Sans', sans-serif; font-size:13px; color:#aca6a6; text-align: left; text-decoration:none; font-weight:bold; padding:0 0 0 17px; margin:0; line-height:20px}
+.proborbg2child h2{font-family: 'PT Sans', sans-serif; font-size:24px; color:#00ade5; text-align: left; text-decoration:none; font-weight: normal; padding:18px 0 0 17px; margin:0; line-height:30px}
+.proborbg2child h2 span{font-size:16px; color:#000;font-weight:bold;}
+.proborbg2child .greenbg{ background-color:#00ade5; float:right; padding:2px 10px}            
+            
+
+.headingtag{ background-color:#009edf; padding:12px; margin:20px 0 20px 0}
+.headingtag h2{font-family: 'Oswald', sans-serif; font-size:18px; color:#fff; text-align: left; text-decoration:none; font-weight: normal; padding:0; margin:0; line-height:18px}
+
+.nxtarrow{ background:url(../img/proprv.png) no-repeat; border:0px solid red !important; z-index:999;top:-8% !important; width:9px; height:19px; right:0 !important; position:absolute}
+
+.prvarrow{ background: url(../img/pronxt.png) no-repeat; border:0px solid red !important; z-index:99999;top:-8% !important; width:9px; height:19px; right:10% !important; position:absolute}
+
+
+.bigimg-left{ width:90%; float: none; background-color:#FFF !important; padding:10px; border:0px solid red; margin:0 auto}
+.bigimg-right{ width:90%; float: none;border:0px solid red;margin:0 auto}
+
+
+
+
+
+.bigimg-right .price{font-family: 'Oswald', sans-serif; font-size:24px; color:#005ed0; text-align: left; text-decoration:none; font-weight: normal; padding:0; margin:0; line-height:35px !important}
+
+
+.bigimg-right p{font-family: 'PT Sans', sans-serif; font-size:16px; color:#000; text-align: left; text-decoration:none; font-weight: normal; padding:0; margin:0 0 10px 0; line-height:18px}
+
+.bigimg-right p a{ color:#000;text-decoration:none;}
+.bigimg-right p a:hover{ color:#000;text-decoration: underline;}
+
+.bigimg-right p span{color:#6e6e6e;}
+
+.inputdrop{ width:40%;border:1px solid #d9d9d9 !important;float:left; margin:0 3% 0 0}
+
+.star{float: left; border:0px solid red; font-size: 12px}
+
+
+.carttxt{ width:40%; float: left; background-color:#ff6500;font-family: 'Oswald', sans-serif; font-size:14px; color:#fff; text-align: center; text-decoration:none; font-weight: normal; padding:0; margin:0; line-height:34px}
+
+.carttxt a{color:#fff;}
+.carttxt a:hover{color:#000; text-decoration:none}
+
+.wish{ margin:10px 0 !important; float:left; border:0px solid red}
+.keybor{ border-top:2px solid #009edf; margin:10px 0}
+.keybor h2{font-family: 'Oswald', sans-serif; font-size:20px; color:#005274; text-align: left; text-decoration:none; font-weight: normal; padding:0; margin:0; line-height:50px}
+
+.keybor li{ background:url(../img/featuricon.png) left no-repeat;font-family:Myriad Pro; font-size:14px; color:#000; text-align: left; text-decoration:none; font-weight: normal; padding:0 0 0 30px; margin:0; line-height:28px}
+
+
+.stocktxt{ width:40%; float: left; background-color:#009edf;font-family: 'Oswald', sans-serif; font-size:14px; color:#fff; text-align: center; text-decoration:none; font-weight: normal; padding:0; margin:0; line-height:34px}
+
+#inputmail{ border:0px solid red; width:90%; margin:0 0 10px 15px !important; float:none !important;}
+
+.contact .input{ background-color:#eeeeee; border-radius:none !important; padding:11px 10px 15px 15px !important; width:100%; color:#000 !important; border:0px solid red; margin:0 10px 10px 0; float:left}
+
+.contact .input:hover{ background-color:#fff; border-radius:none !important; padding:10px 9px 14px 14px !important; width:100%; color:#000 !important; border:0px solid red; margin:0 10px 10px 0; border:1px solid #eeeeee}
+
+.contact .input2{ background-color:#eeeeee; border-radius:none !important; padding:11px 10px 15px 15px !important; width:100%; color:#000 !important; border:0px solid red; margin:0 0 10px 0; float: right; font-size:11px !important}
+
+.contact .input2:hover{ background-color:#fff; border-radius:none !important; padding:10px 9px 14px 14px !important; width:100%; color:#000 !important; border:0px solid red; margin:0 0 10px 0; border:1px solid #eeeeee}
+
+.contact .input3{ background-color:#eeeeee; border-radius:none !important; padding:11px 10px 15px 15px !important; width:100%; color:#646464 !important; border:0px solid red; margin:0 0 10px 0; float: right;font-size:11px !important}
+
+.contact .input3:hover{ background-color:#fff; border-radius:none !important; padding:10px 9px 14px 14px !important; width:100%; border:0px solid red; margin:0 0 10px 0; border:1px solid #eeeeee}
+
+
+
+.inputicon{ display:none}
+.mailicon{ display:none}
+
+.call{display:none}
+
+.messageicon{display:none}
+
+.btnc{ background-color:#000; border:1px solid #818181; padding:8px 15px; color:#FFF; text-transform:uppercase; margin-bottom:10px}
+
+.btnc:hover{ background-color:#eee; border:1px solid #818181; padding:8px 15px; color:#000; text-transform:uppercase;margin-bottom:10px}
+
+
+.buytag{ display: none}
+.tagtag{display: none}
+.buytag2{ display: none}
+.tagtag2{display: none}
+
+#dropbg2{ background: #009edf; width:90%; height: auto; margin:0 auto 5% ;font-family: 'Oswald', sans-serif; font-size:12px; border:0; color:#000; padding:0 0 2% 5%}
+
+#dropbg2inner{font-family: 'Oswald', sans-serif; font-size:12px; border:0; color:#000; padding:6px 0 0 15px; background:none !important}
+
+.{ background-color:#009edf !important; border:0px solid red}
+.leftmenu{ background-color:#009edf !important; border:0px solid red !important; padding:0 !important; height: auto !important }
+.leftmenu ul{ list-style-type:none; padding:0; margin:0;}
+.leftmenu ul li{ list-style-type:none;padding:0; margin:0;width:100%; border:0px solid red}
+.leftmenu ul li a{ background: url(../img/navicon.png) right no-repeat; padding:0; list-style-type:none; color:#FFF;font-family: 'PT Sans', sans-serif; font-size:14px; text-transform:uppercase; line-height:21.7px !important;margin:0;border:0px solid red}
+.leftmenu ul li a:hover{ background: url(../img/navicon.png) right no-repeat; padding:0; list-style-type:none; color:#004897;font-family: 'PT Sans', sans-serif; font-size:14px; text-transform:uppercase; line-height:21.7px !important;margin:0; background-color:transparent}
+
+ol.numericControls {margin:1em 0;padding:0;height:28px;	}
+ol.numericControls li{margin:0 10px 0 0; padding:0;float:left;list-style:none;height:28px;line-height:28px;}
+ol.numericControls li a{float:left;height:28px;line-height:28px;border:1px solid #ccc;background:#DAF3F8;color:#555;padding:0 10px;text-decoration:none;}
+ol.numericControls li.current a{background:#5DC9E1;color:#fff;}
+ol.numericControls li a:focus, .prevBtn a:focus, .nextBtn a:focus{outline:none;}
+
+.graphic, .prevBtn, .nextBtn{margin:0;padding:0;display:block;overflow:hidden;text-indent:-8000px;}
+
+.prevBtn, .nextBtn {display:block;width:36px;height:47px;position:absolute;left:15px;top:42%;z-index:1000;background: url(../img/prv.png) no-repeat 0 0;cursor:pointer;}	
+.nextBtn{left:85%; border:0px solid red}														
+.nextBtn {background:url(../img/nxt.png) no-repeat 0 0;}
+
+
+.producbannercap{ background:url(../img/bgopacity.png) no-repeat !important; padding:2%; top:20% !important;left:12% !important; width:40%; position:absolute;
+
+}
+.producbannercap h2{font-family: 'Oswald', sans-serif; font-size:16px; color:#fff; text-align: center; text-decoration:none; font-weight: normal; padding:0 0 5px 0; margin:0; text-shadow:none }
+
+
+.producbannercap h3{font-family: 'PT Sans', sans-serif; font-size:14px; color:#fff !important; text-align: center; text-decoration:none; font-weight: normal; padding:0; margin:0;text-shadow:none !important; line-height:18px;}
+
+.producbannercap .btn{font-family: 'PT Sans', sans-serif; font-size:16px; color:#000 !important; text-align: center !important; text-decoration:none; font-weight:bold !important; padding:0; margin:0;text-shadow:none !important; margin-left:12%/* For IE8 and earlier */}
+
+.producbannercap .btn a{font-family: 'PT Sans', sans-serif; font-size:30px; color:#000 !important; text-align: center !important; text-decoration:none; font-weight:bold !important; padding:0; margin:0;text-shadow:none !important; margin-left:12%/* For IE8 and earlier */}
+
+
+
+}
+
+
+@media screen and (min-width:641px) and (max-width: 768px) {
+.scrollbars{width:190px !important;}
+	
+	
+#cardtxt{padding:10px 0 0 0; border:0px solid red}
+#24h{padding:10px 0 0 0; border:0px solid red}
+
+#registertxt{padding:10px 0 0 0; border:0px solid red}
+.topbanner{ margin:0 auto !important; padding:0; text-align:center !important; float: none!important; border:0px solid red}
+.topbanner2{margin:0 auto !important; padding:0; text-align:center !important; float: none!important}
+
+.logo{margin:0 auto !important; padding:0; text-align:center !important; float: none!important; border:0px solid red}
+.container {max-width:960px; border:0px solid red ; padding:0; margin:0 auto}
+.top p{font-family: 'PT Sans', sans-serif; font-size:12px; color:#FFF; text-align:left; text-decoration:none; font-weight:normal; padding:0; margin:0; line-height:18px}
+.top .flashtxt{font-family: 'PT Sans', sans-serif; font-size:11px; color:#FFF; text-align: left; text-decoration:none; font-weight:normal; padding:0; margin:0}
+.card{ float:right; border:0px solid red}
+
+.bannercap{ background-color:#eff3f6 !important; padding:10px}
+.bannercap h2{font-family: 'Oswald', sans-serif; font-size:14px; color:#004896; text-align: left; text-decoration:none; font-weight:normal; padding:0; margin:0; line-height:32px !important; text-shadow:none !important}
+.bannercap h3{font-family: 'Oswald', sans-serif; font-size:12px; color:#000; text-align: left; text-decoration:none; font-weight:normal; padding:0; margin:0;text-shadow:none !important}
+
+.bannercap .btn{font-family: 'Oswald', sans-serif; font-size:14px; color:#004897; text-align: left; text-decoration:none; font-weight:normal; padding:0 10px; margin:0;text-shadow:none !important; background-color:#a8e31e; float:right; margin-top:-30px}
+
+
+.boxcon{  width: auto !important; border:0px solid red; margin:0 auto !important; float:none !important; text-align:center !important}
+.boxconimg{ border:0px solid red; width:155px !important; height:124px !important; margin:0 auto; text-align:center}
+
+.boxconb{ background-color:#3b3b3b; padding:0 10%; color:#FFF; text-transform: capitalize; text-align:center;border:0px solid red; width:100% !important; margin:0 !important; height:35px; font-size:12px; line-height:32px}
+.boxconb img{ width: auto !important;margin:0 auto !important; float:none !important; text-align:center !important}
+
+.producsec{ padding:2.5% 0  }
+.proborbg{ width:24.6%; float: left ; margin:0 !important;border:1px solid #e9e9e9; padding:0;height: auto; text-align: left!important }
+.proborbg img{ width: auto; float: none ; margin:0 auto !important;border:1px solid #e9e9e9; padding:0;height: auto; text-align:center !important }
+
+
+.proborbg .bor{ border:0px solid #e9e9e9; width: auto !important; height: auto !important; margin:0 auto; padding:10px 0}
+.proborbg .bor img{margin:0 auto; text-align:center !important; float:none;border:0px solid red}
+.proborbg h3{font-family: 'PT Sans', sans-serif; font-size:15px; color:#000; text-align: center; text-decoration:none; font-weight: normal; padding:0; margin:0; }
+.proborbg h4{font-family: 'PT Sans', sans-serif; font-size:13px; color:#aca6a6; text-align: center; text-decoration:none; font-weight: !important; padding:0; margin:0; line-height:20px}
+.proborbg h2{font-family: 'PT Sans', sans-serif; font-size:18px; color:#00ade5; text-align: left; text-decoration:none; font-weight: normal; padding:2% 0 0 17%; margin:0 0 10px 0; line-height:30px}
+.proborbg h2 span{font-size:14px; color:#000;font-weight: normal;}
+.proborbg .greenbg{ background-color:#00ade5; float: none; padding:3px 5px; margin-left:10px}
+.proborbg .greenbg img{ width:10%; border:0}
+
+
+.proborbgchild{ width:24.6%; float: left; margin:0 !important;border:1px solid #e9e9e9; padding:0;height: auto; text-align: left !important }
+.proborbgchild .bor{ border:0px solid #e9e9e9; width: auto !important; height: auto !important; margin:0 auto; padding:8px 0}
+
+.proborbgchild .bor img{margin:0 auto; text-align:center !important; float:none;border:0px solid red}
+.proborbgchild h3{font-family: 'PT Sans', sans-serif; font-size:15px; color:#000; text-align: center; text-decoration:none; font-weight: normal; padding:0; margin:0; }
+.proborbgchild h4{font-family: 'PT Sans', sans-serif; font-size:13px; color:#aca6a6; text-align: center; text-decoration:none; font-weight: !important; padding:0; margin:0; line-height:20px}
+.proborbgchild h2{font-family: 'PT Sans', sans-serif; font-size:18px; color:#00ade5; text-align: left; text-decoration:none; font-weight: normal; padding:2% 0 0 17%; margin:0 0 10px 0; line-height:30px}
+.proborbgchild h2 span{font-size:14px; color:#000;font-weight: normal;}
+.proborbgchild .greenbg{ background-color:#00ade5; float: none; padding:3px 5px; margin-left:10px}
+.proborbgchild .greenbg img{ width:10%; border:0}
+
+
+
+.footer{ background:#404040; padding:40px 0}
+.footer h2{font-family: 'PT Sans', sans-serif; font-size:15px; color:#fff; text-align: left; text-decoration:none; font-weight: normal; padding:0 0 16px 0; margin:0;}
+.footer h3{font-family: 'PT Sans', sans-serif; font-size:15px; color:#fff; text-align: left; text-decoration:none; font-weight: normal; padding:0; margin:0;}
+.footer p{font-family: 'PT Sans', sans-serif; font-size:11px; color:#fff; text-align: left; text-decoration:none; font-weight: normal; padding:0; margin:0;}
+
+.footer ul{ list-style-type:none !important}
+
+.footer li a{font-family:Myriad Pro; font-size:11px; color:#fff; text-align: left; text-decoration:none; font-weight: normal; padding:0; margin:0; line-height:16px; list-style-type:none !important}
+
+.social{ background-color:#FFF;}
+
+.leftsidebar{ background-color:#004897 !important; padding:14px 9px; }
+
+.leftsidebar h2{font-family: 'Oswald', sans-serif; font-size:16px; color:#FFF; text-align: left; text-decoration:none; font-weight:normal; padding:0; margin:0; line-height:22px}
+
+
+.newslatter{ background-color:#009edf; border:1px solid #dddbdb; padding:23px 12px}
+.newslatter h3{font-family: 'PT Sans', sans-serif; font-size:14px; color:#fff; text-align: left; text-decoration:none; font-weight:bold; padding:0 0 17px 0; margin:0;}
+
+.input{ border:1px solid #f2f2f2; width:80%; color:#888888; font-size:11px; padding:6px 10px}
+.inputbtn{background:#97cb1e; padding:5px 7px 8px 7px; margin-left:-5px}
+
+
+
+.innerspace{ margin-bottom:20px}
+.producsecheading{font-family: 'Oswald', sans-serif; font-size:25px; color:#000; text-align: left; text-decoration:none; font-weight: bold; padding:0 0 10px 0; margin:0; list-style-type:none !important }
+
+.producsec .innerng{ width:32%; background-color:#f9f9f9; margin:0 2% 5% 0; border:0px solid red; padding:0 2% 2% 2%; float:left}
+.producsec .innerng img{ text-align:center;}
+.producsec .innerng h6{font-family:Myriad Pro; font-size:11px; color:#1ddcf5; text-align: left; text-decoration:none; font-weight: bold; padding:0; margin:0; line-height:44px; text-transform:uppercase}
+.producsec .innerng p{font-family:Myriad Pro; font-size:11px; color:#9092a0; text-align: left; text-decoration:none; font-weight: normal; padding:0; margin:0; }
+
+.producsec .innerngchild{ width:32%; background-color:#f9f9f9; margin:0 0 5% 0; border:0px solid red; padding:0 2% 2% 2%; float:left}
+.producsec .innerngchild img{ text-align:center;}
+.producsec .innerngchild h6{font-family:Myriad Pro; font-size:11px; color:#1ddcf5; text-align: left; text-decoration:none; font-weight: bold; padding:0; margin:0; line-height:44px; text-transform:uppercase}
+.producsec .innerngchild p{font-family:Myriad Pro; font-size:11px; color:#9092a0; text-align: left; text-decoration:none; font-weight: normal; padding:0; margin:0; }
+
+
+.innerngh{font-family: 'PT Sans', sans-serif; font-size:20px; color:#000; text-align: left; text-decoration:none; font-weight: bold; padding:0 0 10px 0; margin:0;}
+.innerp{font-family: 'PT Sans', sans-serif; font-size:14px; color:#000; text-align: left; text-decoration:none; font-weight: normal; padding:0 0 30px 0; margin:0; line-height:18px}
+
+.innerimg{ float:left; margin:10px 0 0 0}
+
+
+
+.proborbg2{width:25%; float: left; margin:0;border:1px solid #e9e9e9; padding:15px 0; height: auto}
+.proborbg2 .bor{ border:1px solid #e9e9e9; width:150px !important; height:150px !important; margin:0 auto}
+.proborbg2 .bor img{margin:0 auto; text-align:center !important; float:none;border:0px solid red}
+.proborbg2 h3{font-family: 'PT Sans', sans-serif; font-size:15px; color:#000; text-align: left; text-decoration:none; font-weight:bold; padding:24px 0 5px 17px; margin:0; }
+.proborbg2 h4{font-family: 'PT Sans', sans-serif; font-size:13px; color:#aca6a6; text-align: left; text-decoration:none; font-weight:bold; padding:0 0 0 17px; margin:0; line-height:20px}
+.proborbg2 h2{font-family: 'PT Sans', sans-serif; font-size:24px; color:#00ade5; text-align: left; text-decoration:none; font-weight: normal; padding:18px 0 0 17px; margin:0; line-height:30px}
+.proborbg2 h2 span{font-size:16px; color:#000;font-weight:bold;}
+.proborbg2 .greenbg{ background-color:#00ade5; float:right; padding:2px 10px}
+
+
+.proborbg2child{ width:25%; float: left; margin:0;border:1px solid #e9e9e9; padding:15px 0; height: auto}
+.proborbg2child .bor{ border:1px solid #e9e9e9; width:150px !important; height:150px !important; margin:0 auto}
+.proborbg2child .bor img{margin:0 auto; text-align:center !important; float:none;border:0px solid red}
+.proborbg2child h3{font-family: 'PT Sans', sans-serif; font-size:15px; color:#000; text-align: left; text-decoration:none; font-weight:bold; padding:24px 0 5px 17px; margin:0; }
+.proborbg2child h4{font-family: 'PT Sans', sans-serif; font-size:13px; color:#aca6a6; text-align: left; text-decoration:none; font-weight:bold; padding:0 0 0 17px; margin:0; line-height:20px}
+.proborbg2child h2{font-family: 'PT Sans', sans-serif; font-size:24px; color:#00ade5; text-align: left; text-decoration:none; font-weight: normal; padding:18px 0 0 17px; margin:0; line-height:30px}
+.proborbg2child h2 span{font-size:16px; color:#000;font-weight:bold;}
+.proborbg2child .greenbg{ background-color:#00ade5; float:right; padding:2px 10px}
+            
+
+.headingtag{ background-color:#009edf; padding:12px; margin:20px 0 20px 0}
+.headingtag h2{font-family: 'Oswald', sans-serif; font-size:18px; color:#fff; text-align: left; text-decoration:none; font-weight: normal; padding:0; margin:0; line-height:18px}
+
+.nxtarrow{ background:url(../img/proprv.png) no-repeat; border:0px solid red !important; z-index:999;top:-8% !important; width:9px; height:19px; right:0 !important; position:absolute}
+
+.prvarrow{ background: url(../img/pronxt.png) no-repeat; border:0px solid red !important; z-index:99999;top:-8% !important; width:9px; height:19px; right:10% !important; position:absolute}
+
+#inputmail{ border:0px solid red; width:94%; margin:0 0 10px 15px !important; float:none !important;}
+
+.contact .input{ background-color:#eeeeee; border-radius:none !important; padding:11px 10px 15px 15px !important; width:100%; color:#000 !important; border:0px solid red; margin:0 10px 10px 0; float:left}
+
+.contact .input:hover{ background-color:#fff; border-radius:none !important; padding:10px 9px 14px 14px !important; width:100%; color:#000 !important; border:0px solid red; margin:0 10px 10px 0; border:1px solid #eeeeee}
+
+.contact .input2{ background-color:#eeeeee; border-radius:none !important; padding:11px 10px 15px 15px !important; width:100%; color:#000 !important; border:0px solid red; margin:0 0 10px 0; float: right; font-size:11px !important}
+
+.contact .input2:hover{ background-color:#fff; border-radius:none !important; padding:10px 9px 14px 14px !important; width:100%; color:#000 !important; border:0px solid red; margin:0 0 10px 0; border:1px solid #eeeeee}
+
+.contact .input3{ background-color:#eeeeee; border-radius:none !important; padding:11px 10px 15px 15px !important; width:100%; color:#646464 !important; border:0px solid red; margin:0 0 10px 0; float: right;font-size:11px !important}
+
+.contact .input3:hover{ background-color:#fff; border-radius:none !important; padding:10px 9px 14px 14px !important; width:100%; border:0px solid red; margin:0 0 10px 0; border:1px solid #eeeeee}
+
+.inputicon{ display:none}
+.mailicon{ display:none}
+
+.call{display:none}
+
+.messageicon{display:none}
+
+.buytag{ display: none}
+.tagtag{display: none}
+.buytag2{ display: none}
+.tagtag2{display: none}
+.boxconimg{ border:0px solid red; width:155px; height:124px; margin:0 auto; text-align:center}
+
+ol.numericControls {margin:1em 0;padding:0;height:28px;	}
+ol.numericControls li{margin:0 10px 0 0; padding:0;float:left;list-style:none;height:28px;line-height:28px;}
+ol.numericControls li a{float:left;height:28px;line-height:28px;border:1px solid #ccc;background:#DAF3F8;color:#555;padding:0 10px;text-decoration:none;}
+ol.numericControls li.current a{background:#5DC9E1;color:#fff;}
+ol.numericControls li a:focus, .prevBtn a:focus, .nextBtn a:focus{outline:none;}
+
+.graphic, .prevBtn, .nextBtn{margin:0;padding:0;display:block;overflow:hidden;text-indent:-8000px;}
+
+.prevBtn, .nextBtn {display:block;width:36px;height:47px;position:absolute;left:15px;top:190px;z-index:1000;background: url(../img/prv.png) no-repeat 0 0;cursor:pointer;}	
+.nextBtn{left:700px; border:0px solid red}														
+.nextBtn {background:url(../img/nxt.png) no-repeat 0 0;}
+
+.leftmenu{ background-color:#009edf !important; border:0px solid red !important; padding:0 !important; height: auto !important; }
+
+.producbannercap{ background:url(../img/bgopacity.png) no-repeat !important; padding:2%; top:20% !important;left:12% !important; width:40%; position:absolute;
+
+}
+.producbannercap h2{font-family: 'Oswald', sans-serif; font-size:36px; color:#fff; text-align: center; text-decoration:none; font-weight: normal; padding:0 0 5px 0; margin:0; text-shadow:none }
+
+
+.producbannercap h3{font-family: 'PT Sans', sans-serif; font-size:18px; color:#fff !important; text-align: center; text-decoration:none; font-weight: normal; padding:0; margin:0;text-shadow:none !important; line-height:18px;}
+
+.producbannercap .btn{font-family: 'PT Sans', sans-serif; font-size:16px; color:#000 !important; text-align: center !important; text-decoration:none; font-weight:bold !important; padding:0; margin:0;text-shadow:none !important; margin-left:20%/* For IE8 and earlier */}
+
+.producbannercap .btn a{font-family: 'PT Sans', sans-serif; font-size:30px; color:#000 !important; text-align: center !important; text-decoration:none; font-weight:bold !important; padding:0; margin:0;text-shadow:none !important; margin-left:20%/* For IE8 and earlier */}
+
+}
+
+@media screen and (min-device-width:779px) and (max-device-width:1024px) { 
+
+.innerspace{ margin-bottom:20px}
+.producsecheading{font-family: 'Oswald', sans-serif; font-size:25px; color:#000; text-align: left; text-decoration:none; font-weight: bold; padding:0 0 10px 0; margin:0; list-style-type:none !important }
+
+.producsec .innerng{ width:32%; background-color:#f9f9f9; margin:0 2% 5% 0; border:0px solid red; padding:0 2% 2% 2%; float:left}
+.producsec .innerng img{ text-align:center;}
+.producsec .innerng h6{font-family:Myriad Pro; font-size:11px; color:#1ddcf5; text-align: left; text-decoration:none; font-weight: bold; padding:0; margin:0; line-height:44px; text-transform:uppercase}
+.producsec .innerng p{font-family:Myriad Pro; font-size:11px; color:#9092a0; text-align: left; text-decoration:none; font-weight: normal; padding:0; margin:0; }
+
+.producsec .innerngchild{ width:32%; background-color:#f9f9f9; margin:0 0 5% 0; border:0px solid red; padding:0 2% 2% 2%; float:left}
+.producsec .innerngchild img{ text-align:center;}
+.producsec .innerngchild h6{font-family:Myriad Pro; font-size:11px; color:#1ddcf5; text-align: left; text-decoration:none; font-weight: bold; padding:0; margin:0; line-height:44px; text-transform:uppercase}
+.producsec .innerngchild p{font-family:Myriad Pro; font-size:11px; color:#9092a0; text-align: left; text-decoration:none; font-weight: normal; padding:0; margin:0; }
+
+
+.innerngh{font-family: 'PT Sans', sans-serif; font-size:20px; color:#000; text-align: left; text-decoration:none; font-weight: bold; padding:0 0 10px 0; margin:0;}
+.innerp{font-family: 'PT Sans', sans-serif; font-size:14px; color:#000; text-align: left; text-decoration:none; font-weight: normal; padding:0 0 30px 0; margin:0; line-height:18px}
+
+.innerimg{ float:left; margin:10px 0 0 0}
+
+
+.proborbg2{width:25%; float: left; margin:0;border:1px solid #e9e9e9; padding:15px 0; height: auto}
+.proborbg2 .bor{ border:1px solid #e9e9e9; width:150px !important; height:150px !important; margin:0 auto}
+.proborbg2 .bor img{margin:0 auto; text-align:center !important; float:none;border:0px solid red}
+.proborbg2 h3{font-family: 'PT Sans', sans-serif; font-size:15px; color:#000; text-align: left; text-decoration:none; font-weight:bold; padding:24px 0 5px 17px; margin:0; }
+.proborbg2 h4{font-family: 'PT Sans', sans-serif; font-size:13px; color:#aca6a6; text-align: left; text-decoration:none; font-weight:bold; padding:0 0 0 17px; margin:0; line-height:20px}
+.proborbg2 h2{font-family: 'PT Sans', sans-serif; font-size:24px; color:#00ade5; text-align: left; text-decoration:none; font-weight: normal; padding:18px 0 0 17px; margin:0; line-height:30px}
+.proborbg2 h2 span{font-size:16px; color:#000;font-weight:bold;}
+.proborbg2 .greenbg{ background-color:#00ade5; float:right; padding:2px 10px}
+
+#inputmail{ border:0px solid red; width:94%; margin:0 0 10px 15px !important; float:none !important;}
+
+.contact .input{ background-color:#eeeeee; border-radius:none !important; padding:10px 10px 15px 35px !important; width:100%; color:#84919b !important; border:0px solid red; margin-bottom:10px}
+
+.contact .input:hover{ background-color:#fff; border-radius:none !important; padding:9px 9px 14px 34px !important; width:100%; color:#84919b !important; border:0px solid red; margin-bottom:10px; border:1px solid #eeeeee}
+
+
+.inputicon{ float:left; position:absolute; left:4% !important; padding-right:20px !important}
+.mailicon{ float:left; position:absolute; left:4% !important; padding-right:20px !important}
+.messageicon{ float:left; position:absolute; left:4% !important; padding-right:20px !important}
+.buytag{ display: none}
+.tagtag{display: none}
+.buytag2{ display: none}
+.tagtag2{display: none}
+
+
+
+/* Numeric Navigation */
+ol.numericControls {margin:1em 0;padding:0;height:28px;	}
+ol.numericControls li{margin:0 10px 0 0; padding:0;float:left;list-style:none;height:28px;line-height:28px;}
+ol.numericControls li a{float:left;height:28px;line-height:28px;border:1px solid #ccc;background:#DAF3F8;color:#555;padding:0 10px;text-decoration:none;}
+ol.numericControls li.current a{background:#5DC9E1;color:#fff;}
+ol.numericControls li a:focus, .prevBtn a:focus, .nextBtn a:focus{outline:none;}
+
+.graphic, .prevBtn, .nextBtn{margin:0;padding:0;display:block;overflow:hidden;text-indent:-8000px;}
+
+.prevBtn, .nextBtn {display:block;width:36px;height:47px;position:absolute;left:-20px;top:190px;z-index:1000;background: url(../img/prv.png) no-repeat 0 0;cursor:pointer;}	
+.nextBtn{left:950px; border:0px solid red}														
+.nextBtn {background:url(../img/nxt.png) no-repeat 0 0;}
+
+
+.contact .input{ background-color:#eeeeee; border-radius:none !important; padding:11px 10px 15px 15px !important; width:100%; color:#000 !important; border:0px solid red; margin:0 10px 10px 0; float:left}
+
+.contact .input:hover{ background-color:#fff; border-radius:none !important; padding:10px 9px 14px 14px !important; width:100%; color:#000 !important; border:0px solid red; margin:0 10px 10px 0; border:1px solid #eeeeee}
+
+.contact .input2{ background-color:#eeeeee; border-radius:none !important; padding:11px 10px 15px 15px !important; width:100%; color:#000 !important; border:0px solid red; margin:0 0 10px 0; float: right; font-size:11px !important}
+
+.contact .input2:hover{ background-color:#fff; border-radius:none !important; padding:10px 9px 14px 14px !important; width:100%; color:#000 !important; border:0px solid red; margin:0 0 10px 0; border:1px solid #eeeeee}
+
+.contact .input3{ background-color:#eeeeee; border-radius:none !important; padding:11px 10px 15px 15px !important; width:100%; color:#646464 !important; border:0px solid red; margin:0 0 10px 0; float: right;font-size:11px !important}
+
+.contact .input3:hover{ background-color:#fff; border-radius:none !important; padding:10px 9px 14px 14px !important; width:100%; border:0px solid red; margin:0 0 10px 0; border:1px solid #eeeeee}
+
+.inputicon{ display:none}
+.mailicon{ display:none}
+
+.call{display:none}
+
+.messageicon{display:none}
+.leftsidebar h2{
+font-size:17px;
+padding:2px;
+}
+.leftmenu{ height:380px !important; }
+}
+
+.boxconb{
+padding:10px 0 0 0; 
+margin:0 2%;
+}
+#example-navbar-collapse{
+width:100% !important;
+margin-top:15px;
+}
+
+@media screen and (min-device-width:767px) and (max-device-width:820px) { 
+.leftmenu ul li a{
+font-size:12px;
+}
+.leftmenu ul li a:hover{
+font-size:12px;
+}
+}
+
+@media screen and (max-width:768px) { 
+#cardtxt{
+text-align:center !important;
+}
+.social{
+margin:0 !important;
+}
+.proborbg h2 {
+padding:2% 0 0 37% !important;
+}
+.scrollbars,.leftmenu{
+height:342px;
+}
+
+.boxconb{
+padding:0; 
+margin:0;
+}
+
+.top p{
+text-align:center !important;
+}
+
+}

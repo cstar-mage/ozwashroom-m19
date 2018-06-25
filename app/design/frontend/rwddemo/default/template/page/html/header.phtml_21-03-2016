@@ -1,0 +1,233 @@
+<?php
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Academic Free License (AFL 3.0)
+ * that is bundled with this package in the file LICENSE_AFL.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/afl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magento.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magento.com for more information.
+ *
+ * @category    design
+ * @package     rwd_default
+ * @copyright   Copyright (c) 2006-2015 X.commerce, Inc. (http://www.magento.com)
+ * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ */
+/**
+ * @var Mage_Page_Block_Html_Header $this
+ */
+ 
+function limit_text($text, $limit) {
+  if (str_word_count($text, 0) > $limit) {
+	  $words = str_word_count($text, 2);
+	  $pos = array_keys($words);
+	  $text = substr($text, 0, $pos[$limit]) . '...';
+  }
+  return $text;
+}
+
+
+?>
+
+<?php /*?><div class="header-language-background">
+    <div class="header-language-container">
+        <div class="store-language-container">
+            <?php echo $this->getChildHtml('store_language') ?>
+        </div>
+
+        <?php echo $this->getChildHtml('currency_switcher') ?>
+
+        <p class="welcome-msg"><?php echo $this->getChildHtml('welcome') ?> <?php echo $this->getChildHtml('accountLinks') ?></p>
+    </div>
+</div>
+
+<header id="header" class="page-header">
+    <div class="page-header-container">
+        <a class="logo" href="<?php echo $this->getUrl('') ?>">
+            <img src="<?php echo $this->getLogoSrc() ?>" alt="<?php echo $this->getLogoAlt() ?>" class="large" />
+            <img src="<?php echo $this->getLogoSrcSmall() ?>" alt="<?php echo $this->getLogoAlt() ?>" class="small" />
+        </a>
+
+        <?php // In order for the language switcher to display next to logo on smaller viewports, it will be moved here.
+              // See app.js for details ?>
+        <div class="store-language-container"></div>
+
+        <!-- Skip Links -->
+
+        <div class="skip-links">
+            <a href="#header-nav" class="skip-link skip-nav">
+                <span class="icon"></span>
+                <span class="label"><?php echo $this->__('Menu'); ?></span>
+            </a>
+
+            <a href="#header-search" class="skip-link skip-search">
+                <span class="icon"></span>
+                <span class="label"><?php echo $this->__('Search'); ?></span>
+            </a>
+
+            <div class="account-cart-wrapper">
+                <a href="<?php echo $this->helper('customer')->getAccountUrl(); ?>" data-target-element="#header-account" class="skip-link skip-account">
+                    <span class="icon"></span>
+                    <span class="label"><?php echo $this->__('Account'); ?></span>
+                </a>
+
+                <!-- Cart -->
+
+                <div class="header-minicart">
+                    <?php echo $this->getChildHtml('minicart_head'); ?>
+                </div>
+            </div>
+
+
+        </div>
+
+        <!-- Navigation -->
+
+        <div id="header-nav" class="skip-content">
+            <?php echo $this->getChildHtml('topMenu') ?>
+        </div>
+
+        <!-- Search -->
+
+        <div id="header-search" class="skip-content">
+            <?php echo $this->getChildHtml('topSearch') ?>
+        </div>
+
+        <!-- Account -->
+
+        <div id="header-account" class="skip-content">
+            <?php echo $this->getChildHtml('topLinks') ?>
+        </div>
+    </div>
+</header>
+<?php */?>
+
+<?php // echo $this->getChildHtml('topContainer'); 
+
+
+?>
+
+
+<div class="top">
+	<div class="container">
+       	  <div class="row">
+       		
+    			<div class="col-lg-3 col-md-3 col-sm-3" id="blank">
+        			<p><?php echo $this->getChildHtml('welcome') ?></p>
+        		</div>
+        		<div class="col-lg-9 col-md-9 col-sm-9" id="blank">
+                	<p class="flashtxt"><a href="">FLASH SALE </a>| <a href="<?php echo Mage::getUrl('customer/account'); ?>">My Account </a>|
+                    <?php
+					if(!Mage::getSingleton('customer/session')->isLoggedIn()){
+					?>
+                    <a href="<?php echo Mage::getUrl('customer/account/login'); ?>"> LOG IN </a>
+                    <?php } else { ?>
+                    <a href="<?php echo Mage::getUrl('customer/account/logout'); ?>"> LOG OUT </a>
+                    <?php } ?>
+                    |<a href=""> TRACK YOUR ORDER</a></p>
+                   
+                </div>
+        </div>
+    </div>
+</div>
+<div class="container">
+    	  <div class="row">
+       		
+    			<div class="col-lg-6 col-md-6 col-sm-6" id="blank"> <a href="<?php echo $this->getUrl('') ?>"><img src="<?php echo $this->getLogoSrc() ?>" width="309" height="60" alt="" class="img-responsive logo"></a> 
+                </div>
+       		    
+            <?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('header_right_ads')->toHtml(); ?>
+<?php 
+// IF WE ARE ON HOMEPAGE
+if(
+Mage::getSingleton('cms/page')->getIdentifier() == 'home'  &&
+Mage::app()->getFrontController()->getRequest()->getRouteName() == 'cms'
+) : ?>
+
+            <div class="col-lg-12 col-md-12 col-sm-12" id="blank">
+          
+          	<div class="col-lg-3 col-md-3 col-sm-3 leftsidebar">
+				<div id="menu1" class="hidden-md hidden-lg"><h2>SHOP ALL CATEGORIES<img src="<?php echo $this->getSkinUrl('img/barrow.png'); ?>" width="14" height="8"></div>
+            	<h2 class="hidden-sm hidden-xs">SHOP ALL CATEGORIES</h2>
+				<ul id="menutxt" class="demo2 hidden-md hidden-lg" style="position:absolute; top:50px; display:none; z-index:9999;">
+				 <?php
+						$parentCategoryId = 2;
+						$cat = Mage::getModel('catalog/category')->load($parentCategoryId);
+						$subcats = $cat->getChildren();
+						foreach(explode(',',$subcats) as $subCatid)
+						{
+							$_category = Mage::getModel('catalog/category')->load($subCatid);
+							if($_category->getIsActive()) {
+							  echo '<li><a href="'.$_category->getURL().'">'.$_category->getName().'</a></li>';
+						  }
+						}
+						echo '<li>&nbsp;</li>';
+					  ?>
+				
+				</ul>
+            </div>
+            <style>
+			  .alag{
+			  height:355px !important;
+			  }
+			  #menu1{
+				  cursor:pointer;
+			  }
+			  </style>
+<?php else : ?>    
+     
+
+            <div class="col-lg-12 col-md-12 col-sm-12" id="blank" style="border:0px solid red; margin-right:0">
+			
+          	<div class="col-lg-3 col-md-3 col-sm-3 leftsidebar">
+            <div id="menu1" ><h2>SHOP ALL CATEGORIES<img src="<?php echo $this->getSkinUrl('img/barrow.png'); ?>" width="14" height="8"></div>
+            <ul id="menutxt" class="demo2" style="position:absolute; top:50px; display:none; z-index:9999;">
+			 <?php
+					$parentCategoryId = 2;
+					$cat = Mage::getModel('catalog/category')->load($parentCategoryId);
+					$subcats = $cat->getChildren();
+					foreach(explode(',',$subcats) as $subCatid)
+					{
+						$_category = Mage::getModel('catalog/category')->load($subCatid);
+						if($_category->getIsActive()) {
+						  echo '<li><a href="'.$_category->getURL().'">'.$_category->getName().'</a></li>';
+					  }
+					}
+					echo '<li>&nbsp;</li>';
+				  ?>
+			
+			</ul>
+            </div>
+              <style>
+			  .alag{
+			  height:355px !important;
+			  }
+			  #menu1{
+				  cursor:pointer;
+			  }
+			  </style>
+			  
+<?php endif; ?>  
+
+ <div class="col-lg-6 col-md-6 col-sm-6 inputbg">
+           
+            <div class="col-lg-9 col-md-9 col-sm-9 mysearch">
+			<?php echo $this->getChildHtml('topSearch') ?>
+            </div>
+            </div>
+            <div class="col-lg-3 col-md-3 col-sm-3 cartbg" style="text-align:right;">
+              <a style="float:right;" href="<?php echo Mage::helper('checkout/cart')->getCartUrl(); ?>"><?php echo $this->getChildHtml('minicart_head'); ?></a> <h2 style="color:#fff;float:right;">&nbsp;|&nbsp;</h2> <a href="<?php echo $this->getUrl('') ?>checkout/onepage/" style="float:right; color:#fff; text-transform:uppercase;"><h2>Checkout</h2></a>
+            </div>
+          </div>
+        </div>
+    </div>  

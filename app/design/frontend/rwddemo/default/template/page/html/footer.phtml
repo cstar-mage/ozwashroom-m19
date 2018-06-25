@@ -1,0 +1,159 @@
+<?php
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Academic Free License (AFL 3.0)
+ * that is bundled with this package in the file LICENSE_AFL.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/afl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magento.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magento.com for more information.
+ *
+ * @category    design
+ * @package     rwd_default
+ * @copyright   Copyright (c) 2006-2015 X.commerce, Inc. (http://www.magento.com)
+ * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ */
+?>
+<?php /*?><div class="footer-container">
+    <div class="footer">
+        <?php echo $this->getChildHtml() ?>
+        <address class="copyright"><?php echo $this->getCopyright() ?></address>
+    </div>
+</div><?php */?>
+
+<div class="container" >
+<div class="row">
+<div class="col-lg-12" id="blank">
+  <div class="col-lg-3 col-md-3 col-sm-12 newslatter">
+	<?php echo $this->getLayout()->createBlock('newsletter/subscribe')->setTemplate('newsletter/subscribe.phtml')->toHtml(); ?>
+  </div>
+  <div class="col-lg-9 col-md-9 col-sm-12" id="blank">
+		<h3 class="customer">Some of our happy customers</h3>
+		<ul id="flexiselDemo3">
+			<?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('happy-customer ')->toHtml(); ?>
+		</ul>
+  </div>
+</div>
+</div>
+</div>
+
+<!-- logo slider -->
+<script type="text/javascript">
+
+jQuery(window).load(function() {
+    
+    jQuery("#flexiselDemo3").flexisel({
+        visibleItems: 5,
+        animationSpeed: 1000,
+        autoPlay: true,
+        autoPlaySpeed: 3000,            
+        pauseOnHover: true,
+        enableResponsiveBreakpoints: true,
+        responsiveBreakpoints: {
+			 portrait: { 
+                changePoint:320,
+                visibleItems: 2
+            },  
+            portrait: { 
+                changePoint:480,
+                visibleItems: 2
+            }, 
+            landscape: { 
+                changePoint:640,
+                visibleItems: 2
+            },
+            tablet: { 
+                changePoint:768,
+                visibleItems: 3
+            }
+        }
+    });
+
+   
+});
+</script>
+
+<div class="footer">
+	<div class="container">
+    	<div class="col-lg-3 col-md-3 col-sm-3" style="padding:0">
+        	<div class="col-lg-6 col-md-6 col-sm-6" style="padding:0">
+            	<?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('help')->toHtml(); ?>
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-6" style="padding:0">
+            	<?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('my-account')->toHtml(); ?>
+            </div>
+         </div>
+         <div class="col-lg-6 col-md-6 col-sm-6" id="blank">
+         	<div class="col-lg-3 col-md-3 col-sm-3" id="blank">
+           	 <?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('find-more')->toHtml(); ?>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-4" id="24h" style="text-align:center;">
+       	   	 <?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('best-price')->toHtml(); ?>
+            </div>
+           <div class="col-lg-3 col-md-3 col-sm-3" id="cardtxt">
+       	    <?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('footer-we-accept')->toHtml(); ?>
+             </div>
+         </div>
+        <div class="col-lg-3 col-xm-3" id="registertxt">
+        	<?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('footer-registered-office')->toHtml(); ?>
+        </div>
+    </div>
+</div>
+
+<script>
+(function($){
+
+    $(document).ready(function() {
+        //$('#menu1').dropit();
+        $('#menu2').dropit({ action: 'hover' });
+    });
+	
+
+	  $(document).ready(function(){
+		  $('#menu1').click(function(){
+			  $('#menutxt').toggle();
+		  });
+	  });
+			  
+    
+
+})(window.jQuery);
+</script>
+<script>
+	jQuery(document).ready(function() {
+		jQuery('.scrollbars').ClassyScroll();
+	});
+</script>
+
+<script>
+	var _gaq = _gaq || [];
+	_gaq.push(['_setAccount', 'UA-30825160-1']);
+	_gaq.push(['_trackPageview']);
+	(function() {
+		var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+		ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+		var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+	})();
+</script>
+
+<!-- Start of LiveChat (www.livechatinc.com) code -->
+<script type="text/javascript">
+var __lc = {};
+__lc.license = 6636641;
+(function() {
+  var lc = document.createElement('script'); lc.type = 'text/javascript'; lc.async = true;
+  lc.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'cdn.livechatinc.com/tracking.js';
+  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(lc, s);
+})();
+</script>
+<!-- End of LiveChat code -->

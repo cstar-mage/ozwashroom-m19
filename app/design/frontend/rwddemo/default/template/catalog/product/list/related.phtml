@@ -1,0 +1,120 @@
+<?php
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Academic Free License (AFL 3.0)
+ * that is bundled with this package in the file LICENSE_AFL.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/afl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magento.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magento.com for more information.
+ *
+ * @category    design
+ * @package     rwd_default
+ * @copyright   Copyright (c) 2006-2015 X.commerce, Inc. (http://www.magento.com)
+ * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ */
+?>
+<?php if($this->getItems()->getSize()): ?>
+
+            <div id="carousel-reviews" class="carousel slide" data-ride="carousel">
+            
+              <div class="carousel-inner">
+              <?php $x = 0; ?>
+                <div class="item active">
+                <?php $count = count($this->getItems()); ?>
+        <?php foreach($this->getItems() as $_item): ?>
+            
+                <?php /*if(!$_item->isComposite() && $_item->isSaleable()): ?>
+                    <?php if (!$_item->getRequiredOptions()): ?>
+                        <input type="checkbox" class="checkbox related-checkbox" id="related-checkbox<?php echo $_item->getId() ?>" name="related_products[]" value="<?php echo $_item->getId() ?>" />
+                    <?php endif; ?>
+                <?php endif;*/ ?>
+                <div class="proborbg2">
+                	<div class="bor">
+                    <a href="<?php echo $_item->getProductUrl() ?>" title="<?php echo $this->escapeHtml($_item->getName()) ?>"><img src="<?php echo $this->helper('catalog/image')->init($_item, 'thumbnail')->resize(162) ?>" width="162" height="145" class="img-responsive" alt="<?php echo $this->escapeHtml($_item->getName()) ?>" /></a>
+                    </div>
+                    <h3><a href="<?php echo $_item->getProductUrl() ?>"><?php echo $this->escapeHtml($_item->getName()) ?></a></h3>
+                    <h2><?php echo $this->getPriceHtml($_item, true, '-related') ?>
+                    	<span class="greenbg">
+						  <?php if($_item->isSaleable()): ?>
+                         <img onclick="setLocation('<?php echo $this->getAddToCartUrl($_item) ?>?options=cart')" src="<?php echo $this->getSkinUrl('img/cart.png');?>" width="39" height="34">
+                                <?php  else: ?>
+                                    <?php echo $this->__('Out of stock') ?>
+                                <?php endif; ?>
+                        </span>
+                    </h2>
+                        <?php /*if ($this->helper('wishlist')->isAllow()) : ?>
+                            <a href="<?php echo $this->getAddToWishlistUrl($_item) ?>" class="link-wishlist"><?php echo $this->__('Add to Wishlist') ?></a>
+                        <?php endif; */
+						 ?>
+                    </div>
+                
+            	<?php $x++; ?>
+                <?php if($x!= 0 && $x%4 == 0 && $x != $count) {
+					echo '</div><div class="item">';
+					//$x=0;
+				}
+				?>
+        <?php endforeach; ?>
+        	</div>
+        </div>
+        <script type="text/javascript">decorateList('block-related', 'none-recursive')</script>
+        <a class="left carousel-control" href="#carousel-reviews" role="button" data-slide="prev" style="background:none !important">
+                    <div class="nxtarrow"></div>
+                </a>
+                <a class="right carousel-control" href="#carousel-reviews" role="button" data-slide="next" style="background:none !important">
+                    <div class="prvarrow" ></div>
+                </a>
+    </div>
+
+    <script type="text/javascript">
+    //<![CDATA[
+    $$('.related-checkbox').each(function(elem){
+        Event.observe(elem, 'click', addRelatedToProduct)
+    });
+
+    var relatedProductsCheckFlag = false;
+    function selectAllRelated(txt){
+        if (relatedProductsCheckFlag == false) {
+            $$('.related-checkbox').each(function(elem){
+                elem.checked = true;
+            });
+            relatedProductsCheckFlag = true;
+            txt.innerHTML="<?php echo Mage::helper('core')->jsQuoteEscape($this->__('unselect all')) ?>";
+        } else {
+            $$('.related-checkbox').each(function(elem){
+                elem.checked = false;
+            });
+            relatedProductsCheckFlag = false;
+            txt.innerHTML="<?php echo Mage::helper('core')->jsQuoteEscape($this->__('select all')) ?>";
+        }
+        addRelatedToProduct();
+    }
+
+    function addRelatedToProduct(){
+        var checkboxes = $$('.related-checkbox');
+        var values = [];
+        for(var i=0;i<checkboxes.length;i++){
+            if(checkboxes[i].checked) values.push(checkboxes[i].value);
+        }
+        if($('related-products-field')){
+            $('related-products-field').value = values.join(',');
+        }
+    }
+    //]]>
+    </script>
+<?php else: ?>
+<div id="carousel-reviews" class="carousel slide" data-ride="carousel">
+    <!--<h2>Related products not found.</h2>-->
+</div>
+<?php endif ?>

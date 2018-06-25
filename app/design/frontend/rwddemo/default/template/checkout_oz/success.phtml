@@ -1,0 +1,208 @@
+<?php
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Academic Free License (AFL 3.0)
+ * that is bundled with this package in the file LICENSE_AFL.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/afl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magento.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magento.com for more information.
+ *
+ * @category    design
+ * @package     base_default
+ * @copyright   Copyright (c) 2006-2016 X.commerce, Inc. and affiliates (http://www.magento.com)
+ * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ */
+?>
+<div class="page-title">
+    <h1><?php echo $this->__('Your order has been received.') ?></h1>
+</div>
+<?php echo $this->getMessagesBlock()->toHtml() ?>
+<h2 class="sub-title"><?php echo $this->__('Thank you for your purchase!') ?></h2>
+
+<?php if ($this->getOrderId()):?>
+<?php if ($this->getCanViewOrder()) :?>
+    <p><?php echo $this->__('Your order # is: %s.', sprintf('<a href="%s">%s</a>', $this->escapeHtml($this->getViewOrderUrl()), $this->escapeHtml($this->getOrderId()))) ?></p>
+<?php  else :?>
+    <p><?php echo $this->__('Your order # is: %s.', $this->escapeHtml($this->getOrderId())) ?></p>
+<?php endif;?>
+    <p><?php echo $this->__('You will receive an order confirmation email with details of your order and a link to track its progress.') ?></p>
+<?php if ($this->getCanViewOrder() && $this->getCanPrintOrder()) :?>
+    <p>
+        <?php echo $this->__('Click <a href="%s" onclick="this.target=\'_blank\'">here to print</a> a copy of your order confirmation.', $this->getPrintUrl()) ?>
+        <?php echo $this->getChildHtml() ?>
+    </p>
+<?php endif;?>
+<?php endif;?>
+
+<?php if ($this->getAgreementRefId()): ?>
+    <p><?php echo $this->__('Your billing agreement # is: %s.', sprintf('<a href="%s">%s</a>', $this->escapeHtml($this->getAgreementUrl()), $this->escapeHtml($this->getAgreementRefId())))?></p>
+<?php endif;?>
+
+<?php if ($profiles = $this->getRecurringProfiles()):?>
+<p><?php echo $this->__('Your recurring payment profiles:'); ?></p>
+<ul class="disc">
+<?php foreach($profiles as $profile):?>
+<?php $profileIdHtml = ($this->getCanViewProfiles() ? sprintf('<a href="%s">%s</a>', $this->escapeHtml($this->getProfileUrl($profile)), $this->escapeHtml($this->getObjectData($profile, 'reference_id'))) : $this->escapeHtml($this->getObjectData($profile, 'reference_id')));?>
+    <li><?php echo $this->__('Payment profile # %s: "%s".', $profileIdHtml, $this->escapeHtml($this->getObjectData($profile, 'schedule_description')))?></li>
+<?php endforeach;?>
+</ul>
+<?php endif;?>
+
+<div class="buttons-set">
+    <button type="button" class="button" title="<?php echo Mage::helper('core')->quoteEscape($this->__('Continue Shopping')) ?>" onclick="window.location='<?php echo $this->getUrl() ?>'"><span><span><?php echo $this->__('Continue Shopping') ?></span></span></button>
+</div>
+
+<?php
+    $_customerId = Mage::getSingleton('customer/session')->getCustomerId();
+    $lastOrderId = Mage::getSingleton('checkout/session')->getLastOrderId();
+    $order = Mage::getSingleton('sales/order'); 
+    $order->load($lastOrderId);
+    $_totalData =$order->getData(); 
+    $_sub = $_totalData['subtotal'];
+
+    $date=date_create($_totalData['created_at']);
+  
+
+    $_order   = $this->getOrder();
+    $allitems = $order->getAllItems();
+   
+$orderid = $this->escapeHtml($this->getOrderId()); //load order by order id 
+
+$order = Mage::getModel('sales/order')->loadByIncrementId($orderid);
+$countrycode = $order->getBillingAddress()->getCountry();
+$countryModel = Mage::getModel('directory/country')->loadByCode($countrycode);
+$countryName = $countryModel->getName();
+?>
+
+<!-- START Google Trusted Stores Order -->
+<div id="gts-order" style="display:none;" translate="no">
+ <!-- start order and merchant information -->
+   <span id="gts-o-id"><?php echo $orderid;?></span>
+   <span id="gts-o-email"><?php echo $_totalData['customer_email'];?></span>
+   <span id="gts-o-country"><?php echo $countrycode;?></span>
+   <span id="gts-o-currency"><?php echo $_totalData['base_currency_code'];?></span>
+   <span id="gts-o-total"><?php echo number_format($_totalData['grand_total'], 2);?></span>
+   <span id="gts-o-discounts"><?php echo number_format($_totalData['discount_amount'], 2);?></span>
+   <span id="gts-o-shipping-total"><?php echo number_format($_totalData['shipping_amount'], 2);?></span>
+   <span id="gts-o-tax-total"><?php echo number_format($_totalData['tax_amount'], 2);?></span>
+   <span id="gts-o-est-ship-date"><?php echo date_format($date,"Y-m-d");?></span>
+   <span id="gts-o-est-delivery-date"><?php echo date_add($date, new DateInterval('P3D'))->format('Y-m-d'); ?></span>
+   <span id="gts-o-has-preorder">Y</span>
+   <span id="gts-o-has-digital">N</span>
+   <!-- end order and merchant information -->
+
+   <!-- start repeated item specific information -->
+   <?php foreach($allitems as $item)
+     {?>
+   <span class="gts-item">
+     <span class="gts-i-name"><?php echo $item['name'];?></span>
+     <span class="gts-i-price"><?php echo number_format($item['price'], 2);?></span>
+     <span class="gts-i-quantity"><?php echo number_format($item['qty_ordered'], 0);?></span>
+   </span>
+   <?php }?>
+   <!-- end repeated item specific information -->
+
+ </div>
+
+<!--By Justin Viet Nam-->
+<!-- Bing Code for New Website Sales Conversion Page --> 
+<?php
+    //Get Order Number & Order Total
+    $order = Mage::getModel('sales/order')->loadByIncrementId(Mage::getSingleton('checkout/session')->getLastRealOrderId());
+    $amount = number_format($order->getGrandTotal(),2);
+?>
+ <script>
+function GetRevenueValue()
+{
+if (<?php echo $amount?>) {
+    return <?php echo $amount ?>;
+}	
+
+}
+</script>
+<script>
+window.uetq = window.uetq || [];
+window.uetq.push({ 'gv': GetRevenueValue(), 'gc': 'AUD'}); 
+</script>
+<!-- End Bing Code for New Website Sales Conversion Page --> 
+
+
+<!-- Google Code for New Website Sales Conversion Page -->
+<script type="text/javascript">
+/* <![CDATA[ */
+var google_conversion_id = 1057356004;
+var google_conversion_language = "en";
+var google_conversion_format = "3";
+var google_conversion_color = "ffffff";
+var google_conversion_label = "b09ZCLnPvXMQ5PGX-AM";
+if (<?php echo $amount?>) {
+    var google_conversion_value = <?php echo $amount?>;
+}
+var google_conversion_currency = "AUD";
+var google_remarketing_only = false;
+/* ]]> */
+</script>
+<script type="text/javascript" src="//www.googleadservices.com/pagead/conversion.js">
+</script>
+<noscript>
+<div style="display:inline;">
+<img height="1" width="1" style="border-style:none;" alt="" src="//www.googleadservices.com/pagead/conversion/1057356004/?value=<?php echo $amount ?>&amp;currency_code=AUD&amp;label=b09ZCLnPvXMQ5PGX-AM&amp;guid=ON&amp;script=0"/>
+</div>
+</noscript>
+
+<!-- End Google Code for New Website Sales Conversion Page -->
+
+<!-- BEGIN GCR Opt-in Module Code -->
+<script src="https://apis.google.com/js/platform.js?onload=renderOptIn"
+  async defer>
+</script>
+
+<script>
+  window.renderOptIn = function() { 
+    window.gapi.load('surveyoptin', function() {
+      window.gapi.surveyoptin.render(
+        {
+          // REQUIRED
+          "merchant_id":117521597,
+          "order_id": <?php echo $orderid; ?>, 
+          "email": <?php echo $_totalData['customer_email'];?>,
+          "delivery_country": <?php echo $countrycode;?>,
+          "estimated_delivery_date": <?php echo date_add($date, new DateInterval('P3D'))->format('Y-m-d'); ?>,
+
+          // OPTIONAL
+          "opt_in_style": "CENTER_DIALOG"
+        }); 
+     });
+  }
+</script>
+<!-- END GCR Opt-in Module Code -->
+<!-- BEGIN GCR Language Code -->
+<script>
+  window.___gcfg = {
+    lang: 'en_US'
+  };
+</script>
+<!-- END GCR Language Code -->
+
+<script src="https://apis.google.com/js/platform.js?onload=renderBadge" async defer></script>
+
+<script>
+  window.renderBadge = function() {
+    var ratingBadgeContainer = document.createElement("div");
+    document.body.appendChild(ratingBadgeContainer);
+    window.gapi.load('ratingbadge', function() {
+      window.gapi.ratingbadge.render(ratingBadgeContainer, {"merchant_id": 117521597});
+    });
+  }
+</script>

@@ -1,0 +1,280 @@
+<?php
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Academic Free License (AFL 3.0)
+ * that is bundled with this package in the file LICENSE_AFL.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/afl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magento.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magento.com for more information.
+ *
+ * @category    design
+ * @package     rwd_default
+ * @copyright   Copyright (c) 2006-2015 X.commerce, Inc. (http://www.magento.com)
+ * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ */
+/**
+ * @var Mage_Page_Block_Html_Header $this
+ */
+ 
+function limit_text($text, $limit) {
+  if (str_word_count($text, 0) > $limit) {
+	  $words = str_word_count($text, 2);
+	  $pos = array_keys($words);
+	  $text = substr($text, 0, $pos[$limit]) . '...';
+  }
+  return $text;
+}
+
+
+?>
+
+<div class="top">
+	<div class="container">
+       	  <div class="row">
+    			<div class="col-lg-3 col-md-3 col-sm-3">
+        			<p><?php echo $this->getChildHtml('welcome') ?></p>
+        		</div>
+        		<div class="col-lg-9 col-md-9 col-sm-9">
+                	<p class="flashtxt"><a href="<?php echo Mage::getBaseUrl(); ?>contact-us">CONTACT US </a>| <a href="<?php echo Mage::getUrl('customer/account'); ?>">My Account </a>|
+                    <?php
+					if(!Mage::getSingleton('customer/session')->isLoggedIn()){
+					?>
+                    <a href="<?php echo Mage::getUrl('customer/account/login'); ?>"> LOG IN </a>
+                    <?php } else { ?>
+                    <a href="<?php echo Mage::getUrl('customer/account/logout'); ?>"> LOG OUT </a>
+                    <?php } ?>
+                    |<a href="<?php echo Mage::getBaseUrl(); ?>customer/account/"> TRACK YOUR ORDER</a></p>
+                   
+                </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="container">
+    <div class="row">
+		<div class="col-lg-6 col-md-6 col-sm-6" style="padding: 0;">
+		   <a href="<?php echo $this->getUrl('') ?>">
+			<img src="<?php echo $this->getLogoSrc() ?>" width="" height="" alt="" class="img-responsive logo">
+		   </a> 
+		</div> 
+		<?php 
+			echo $this->getLayout()->createBlock('cms/block')->setBlockId('header_right_ads')->toHtml(); 
+		?>
+	<?php 
+	// IF WE ARE ON HOMEPAGE
+	if(
+	Mage::getSingleton('cms/page')->getIdentifier() == 'home'  &&
+	Mage::app()->getFrontController()->getRequest()->getRouteName() == 'cms'
+	)  { ?>
+		<div class="desktop col-lg-12 col-md-12 col-sm-12" style="padding: 0;">
+			<div class=" col-lg-3 col-md-3 col-sm-3 leftsidebar">
+				<div id="menu1" class="hidden-md hidden-lg"><h2>SHOP ALL CATEGORIES</h2><img src="<?php echo $this->getSkinUrl('img/barrow.png'); ?>" width="14" height="8" alt=""></div>
+				<h2 class="hidden-sm hidden-xs">SHOP ALL CATEGORIES</h2>
+			</div>
+	<?php }
+	else { ?>    
+     
+		<?php
+		$routeName = Mage::app()->getRequest()->getRouteName(); 
+		$identifier = Mage::getSingleton('cms/page')->getIdentifier();
+		$toNotShow = 0;
+		 
+		if($routeName == 'cms' && $identifier == 'home') {
+		  $toNotShow = 0;
+		} else {
+		  $toNotShow = 1;
+		}
+		?>
+		<div class="desktop col-lg-12 col-md-12 col-sm-12" style="border:0px solid red; margin-right:0; padding: 0px;">
+			<div class="col-lg-3 col-md-3 col-sm-3 leftsidebar <?php if($toNotShow):?>category_drpdwn_head<?php endif;?>">
+			<h2>SHOP ALL CATEGORIES<img src="<?php echo $this->getSkinUrl('img/barrow.png'); ?>" width="14" height="8"></h2>
+			<div class="me-li">
+				<ul id="menutxt" class="demo2" style="position:absolute; top:0; display:none; z-index:9999;">
+					<?php
+					$parentCategoryId = 2;
+					$cat = Mage::getModel('catalog/category')->load($parentCategoryId);
+					$subcats = $cat->getChildren();
+						$cat = Mage::getModel('catalog/category')->load($parentCategoryId);
+						$children = Mage::getModel('catalog/category')->getCollection()->setStoreId(Mage::app()->getStore()->getId());
+						$children->addAttributeToSelect('*')
+							->addAttributeToFilter('parent_id', $cat->getId())
+							->addAttributeToFilter('is_active', 1)
+							->addAttributeToSort('position');                 
+						
+						foreach ($children as $child)
+						{
+								$subCatid = $child->getId();
+						$_category = Mage::getModel('catalog/category')->load($subCatid);
+						if($_category->getIsActive()) {
+						?>
+						<?php $_category = Mage::getModel('catalog/category')->load($_category->getId()) ?>
+						<?php //$_subcategories = $_category->getChildrenCategories()
+									$_subcategories = Mage::getModel('catalog/category')->getCollection()->setStoreId(Mage::app()->getStore()->getId());
+									$_subcategories->addAttributeToSelect('*')
+										->addAttributeToFilter('parent_id', $_category->getId())
+										->addAttributeToFilter('is_active', 1)
+										->addAttributeToSort('position');    
+									?>
+						<li style="position: relative;"<?php if (count($_subcategories) > 0) { ?> class= "has-sub" id="hassub<?php echo $_category->getId(); ?>" <?php } ?> ><a href="<?php echo $_category->getURL(); ?>" title=""><?php echo $_category->getName(); ?></a>
+							<?php if (count($_subcategories) > 0): ?>
+							<ul class="sub-menu2" id="sub-child<?php echo $_category->getId(); ?>" style=" display: none; margin-left: 10px;">
+					<?php foreach($_subcategories as $_subcategory): ?><li><a href="<?php echo $_subcategory->getUrl() ?>"><?php echo $_subcategory->getName() ?></a></li><?php endforeach; ?></ul>	
+					<script type="text/javascript">
+					jQuery(document).ready(function () {
+					jQuery( "#hassub<?php echo $_category->getId(); ?>" ).mouseover(function() {
+						jQuery("#sub-child<?php echo $_category->getId(); ?>").show();
+					});
+					jQuery( "#hassub<?php echo $_category->getId(); ?>" ).mouseout(function() {
+						jQuery("#sub-child<?php echo $_category->getId(); ?>").hide();
+					});	
+
+					});
+					</script>
+					<?php endif; ?></li>	
+					<?php	} } ?>
+				</ul>
+			</div>
+			</div>
+		<?php 
+		} 
+		?>  
+
+			<div class="col-lg-6 col-md-6 col-sm-6 inputbg">   
+				<div class="col-lg-9 col-md-9 col-sm-9 mysearch">
+					<?php echo $this->getChildHtml('topSearch') ?>
+				</div>
+			</div>
+			<div class="col-lg-3 col-md-3 col-sm-3 cartbg" style="text-align:right;">
+				<a style="float:right;" href="<?php echo Mage::helper('checkout/cart')->getCartUrl(); ?>">
+				<?php echo $this->getChildHtml('minicart_head'); ?>
+				</a> 
+				<h2 style="color:#fff;float:right;">&nbsp;|&nbsp;</h2> 
+				<a href="<?php echo $this->getUrl('') ?>checkout/onepage/" style="float:right; color:#fff; text-transform:uppercase;">
+					<h2>Checkout</h2>
+				</a>
+			</div>
+		</div>
+		</div>
+		</div>  
+		
+		<!--Start mobi menu-->
+<div class="mobi">
+
+	<div class="col-lg-6 col-md-6 col-sm-6 inputbg">   
+		<div class="col-lg-9 col-md-9 col-sm-9 mysearch">
+			<?php echo $this->getChildHtml('topSearch') ?>
+		</div>
+	</div>
+	<div class="col-lg-3 col-md-3 col-sm-3 cartbg" style="text-align:right;">
+		<a style="float:right;" href="<?php echo Mage::helper('checkout/cart')->getCartUrl(); ?>">
+		<?php echo $this->getChildHtml('minicart_head'); ?>
+		</a> 
+		<h2 style="color:#fff;float:right;">&nbsp;|&nbsp;</h2> 
+		<a href="<?php echo $this->getUrl('') ?>checkout/onepage/" style="float:right; color:#fff; text-transform:uppercase;">
+			<h2>Checkout</h2>
+		</a>
+	</div>
+
+    <!-- Navbar fixed top -->
+<div class="navbar navbar-default" role="navigation" style="margin-bottom: 0px;">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">SHOP ALL CATEGORIES</a>
+    </div>
+    <div class="navbar-collapse collapse">
+        <!-- Left nav -->
+	    <ul class="nav navbar-nav">
+			<?php
+			$parentCategoryId = 2;
+			$cat = Mage::getModel('catalog/category')->load($parentCategoryId);
+			$subcats = $cat->getChildren();
+				$cat = Mage::getModel('catalog/category')->load($parentCategoryId);
+				$children = Mage::getModel('catalog/category')->getCollection()->setStoreId(Mage::app()->getStore()->getId());
+				$children->addAttributeToSelect('*')
+					->addAttributeToFilter('parent_id', $cat->getId())
+					->addAttributeToFilter('is_active', 1)
+					->addAttributeToSort('position');                 
+				
+				foreach ($children as $child)
+				{
+				$subCatid = $child->getId();
+				$_category = Mage::getModel('catalog/category')->load($subCatid);
+				if($_category->getIsActive()) {
+				?>
+				<?php $_category = Mage::getModel('catalog/category')->load($_category->getId()) ?>
+				<?php
+					$_subcategories = Mage::getModel('catalog/category')->getCollection()->setStoreId(Mage::app()->getStore()->getId());
+					$_subcategories->addAttributeToSelect('*')
+						->addAttributeToFilter('parent_id', $_category->getId())
+						->addAttributeToFilter('is_active', 1)
+						->addAttributeToSort('position');    
+							?>
+				<li>
+					<a href="<?php echo $_category->getURL(); ?>" title=""><?php echo $_category->getName(); ?>
+					<?php if (count($_subcategories) > 0) { ?>
+						<span class="caret"></span>
+					<?php } ?>
+					
+					</a>
+						<?php if (count($_subcategories) > 0): ?>
+						<ul class="dropdown-menu">
+						<?php foreach($_subcategories as $_subcategory): ?>
+							<li>
+								<a href="<?php echo $_subcategory->getUrl() ?>">
+									<?php echo $_subcategory->getName() ?>
+								</a>
+							</li>
+						<?php endforeach; ?>
+						</ul>	
+			
+						<?php endif; ?>
+				</li>	
+			<?php	} 
+				} 
+			?>
+
+      
+		</ul>  
+  
+    </div><!--/.nav-collapse -->
+	
+	
+	
+  </div><!--/.container -->
+</div>
+
+</div>	
+<!--End mobi menu-->
+
+<script type="text/javascript">
+	jQuery(document).ready(function(){
+	jQuery(".category_drpdwn_head").click(function(){
+		if (jQuery(this).find("#menutxt").hasClass("shown")) {
+		jQuery(this).find("#menutxt").hide();
+		jQuery(this).find("#menutxt").removeClass("shown");
+		}else{
+		jQuery(this).find("#menutxt").show();
+		jQuery(this).find("#menutxt").addClass("shown");
+		}
+		});
+	});
+</script>
